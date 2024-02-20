@@ -1,6 +1,6 @@
 # Logs
 logs
-*.log
+*.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -12,25 +12,75 @@ node_modules
 dist
 dist-ssr
 coverage
-*.local
+*.local*
+*.localdev*
+*.local_dev*
+*.dev*
+*.development*
 
-/cypress/videos/
-/cypress/screenshots/
+*.test*
+*.tests*
+*.testing*
+
+*.staging*
+*.prod*
+*.production*
 
 # Editor directories and files
 .vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 !.vscode/extensions.json
+.history
 .idea
+.idea/*
+*.iws
+*.iml
+*.ipr
 *.suo
-*.ntvs*
-*.njsproj
 *.sln
 *.sw?
+*.bak
+*.tmp
+*.sublime-workspace
+*.sublime-project
+*.sublime-*
+*.komodoproject
+.komodotools
+.komodoproject
+*.ntvs*
+*.njsproj
+*.sln.docstates
+*.user
+*.userosscache
 
-*.tsbuildinfo
+*.tsbuildinfo*
 
 test-results/
 playwright-report/
+jest-report/
+
+# Dependency directories
+
+cypress-report/
+cypress-screenshots/
+cypress-videos/
+cypress-logs/
+cypress-coverage/
+cypress-debug.log
+cypress-error.log
+cypress-mocharc.json
+cypress.json
+cypress.env.json
+cypress.env.local.json
+cypress.env.ci.json
+cypress.env.staging.json
+cypress.env.production.json
+cypress.env.development.json
+cypress.env.test.json
+cypress.env.qa.json
+cypress.env.staging.json
 
 # Playwright test artifacts
 /playwright-tests/output/
@@ -40,3 +90,17 @@ playwright-report/
 # Vite build output
 /build/
 /.vite/
+
+#lighthouse generated files
+/lighthouse/
+lighthouse-report.html
+lighthouse-error.html
+chromewebdata_*.report.html
+
+
+# Jest test artifacts
+/jest-tests/output/
+/jest-tests/results/
+/jest-tests/screenshots/
+
+
