@@ -2,8 +2,8 @@ name: CI
 
 on:
   push:
-  #  branches:
-  #   - main (uncomment these 2 lines if you want to run only on main branch)
+    branches:
+      - main
 
 jobs:
   build:
