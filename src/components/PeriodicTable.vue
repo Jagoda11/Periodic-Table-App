@@ -19,7 +19,8 @@
         <tr v-for="period in periods" :key="'period-' + period">
           <th scope="row">{{ period }}</th>
           <td v-for="group in 18" :key="`period-${period}-group-${group}`">
-            <div v-if="getElement(period, group)" @click="handleClick(getElement(period, group))">
+            <div v-if="getElement(period, group)" @click="handleClick(getElement(period, group))"
+     :class="{'highlighted': isHighlighted(getElement(period, group)?.block)}">
             <div>{{ getElement(period, group)?.symbol }}</div>
             <div>{{ getElement(period, group)?.atomicNumber }}</div>
             <div>{{ getElement(period, group)?.name }}</div>
@@ -39,14 +40,14 @@ import elementsData from '@/assets/periodic-table-data.json'; // Import the JSON
 
 
 export default defineComponent({
-  setup() {
-    // Define data
+  setup() { // Store the currently highlighted block
     const elements = ref<ElementData[]>(elementsData); // Your array of elements
     const periods = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8]);// Array representing periods 1 to 8
-    const highlightedBlock = ref<string | null>(null); // Store the currently highlighted block
-
+    const highlightedBlock = ref<string | null>(null);
     // Function to handle element click events
-    const handleClick = (element: ElementData) => {
+    const handleClick = (element: ElementData | null) => {
+        // Early return if element is null to satisfy TypeScript's strict null checks
+      if (element === null) return;
       // Check if the clicked element belongs to the highlighted block
       if (highlightedBlock.value === element.block) {
         // If yes, remove the highlight
@@ -59,7 +60,7 @@ export default defineComponent({
 
     // Function to invert the table
     const invertTable = () => {
-        elements.value.reverse();
+        periods.value.reverse();
     
     if (highlightedBlock.value) {
         // Find the index of the first element with the highlighted block
@@ -81,13 +82,19 @@ export default defineComponent({
       return elements.value.find(element => element.row === period && element.column === group) || null;
     };
 
+    // isHighlighted method definition
+    const isHighlighted = (elementBlock: string | undefined) => {
+      return elementBlock === highlightedBlock.value;
+    };
+
     return {
       elements,
       periods,
       highlightedBlock,
       handleClick,
       invertTable,
-      getElement
+      getElement,
+      isHighlighted,
     };
   }
 });
@@ -110,5 +117,8 @@ export default defineComponent({
     background-color: #007bff; 
     color: #fff; /* Improved contrast and a11y */
   }
+  .highlighted {
+  background-color: #ffc107;
+}
   </style>
   
