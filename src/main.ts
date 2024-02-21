@@ -1,5 +1,6 @@
 import './assets/main.css'
-import 'bootstrap/dist/css/bootstrap.min.css' // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './components/PeriodicTable.vue'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

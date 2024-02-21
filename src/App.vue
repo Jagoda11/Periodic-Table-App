@@ -1,18 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/periodic-table">Periodic Table</RouterLink>
       </nav>
     </div>
   </header>
@@ -26,14 +21,9 @@ header {
   max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 12px; /* Base font size */
   text-align: center;
   margin-top: 2rem;
 }
@@ -63,10 +53,6 @@ nav a:first-of-type {
     padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
   header .wrapper {
     display: flex;
     place-items: flex-start;
@@ -76,10 +62,63 @@ nav a:first-of-type {
   nav {
     text-align: left;
     margin-left: -1rem;
-    font-size: 1rem;
-
+    font-size: 1rem; /* Adjust font size for larger screens */
     padding: 1rem 0;
     margin-top: 1rem;
   }
 }
+
+@media (max-width: 767px) {
+  nav {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    font-size: 0.7rem; /* Adjust font size for extra small screens */
+  }
+}
+
+@media (max-width: 320px) {
+  nav {
+    font-size: 0.6rem; /* Adjust font size for smallest mobile screens */
+  }
+}
+
+/* Ensure compatibility with all evergreen browsers */
+@supports (-ms-ime-align: auto) {
+  /* Styles for Microsoft Edge */
+  nav {
+    font-size: 0.9rem; /* Adjust font size for Microsoft Edge */
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* Styles for Safari and other WebKit browsers */
+  nav {
+    font-size: 0.9rem; /* Adjust font size for Safari and other WebKit browsers */
+  }
+}
+
+/* Media queries for larger screens */
+@media (min-width: 1200px) {
+  nav {
+    font-size: 1.1rem; /* Adjust font size for larger screens */
+  }
+}
+
+@media (min-width: 1440px) {
+  nav {
+    font-size: 1.2rem; /* Adjust font size for even larger screens */
+  }
+}
+
+@media (min-width: 1920px) {
+  nav {
+    font-size: 1.4rem; /* Adjust font size for very large screens */
+  }
+}
 </style>
+
+
