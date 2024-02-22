@@ -30,19 +30,17 @@ body {
 }
 
 @media (min-width: var(--breakpoint-sm)) {
-    .container {
-      max-width: 540px;
-    }
+  .container {
+    max-width: 540px;
   }
-  
-  @media (min-width: var(--breakcolor-primary));
-    padding: 1rem;
-    border-radius: 4px;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }      
+}
 
-  
+@media (min-width: var(--breakcolor-primary)) {
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

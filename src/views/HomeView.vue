@@ -7,5 +7,5 @@
 
 <script setup lang="ts">
 // Import the PeriodicTable component
-import PeriodicTable from '@/components/PeriodicTable.vue';
+import PeriodicTable from '@/components/PeriodicTable.vue'
 </script>
