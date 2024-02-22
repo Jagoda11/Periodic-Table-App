@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.app.json",
+  "include": [
+    "src/**/*",
+    ".eslintrc.cjs",
+    "jest.config.ts",
+    "playwright-tests/**/*.ts",
+    "playwright.config.ts",
+    "vite.config.ts",
+    "env.d.ts"
+    // Add any other files outside "src" that you want ESLint to cover
+  ],
+  "exclude": [
+    "node_modules"
+    // You can exclude any directory you do not want TypeScript to process for linting
+  ]
+}
