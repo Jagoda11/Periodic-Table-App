@@ -10,15 +10,27 @@
     "src/**/*.vue",
     "src/**/*.json",
     "src/**/*.d.ts",
-    "src/types/ElementData.ts"
+    "src/types/ElementData.ts",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "tests/**/*.js",
+    "tests/**/*.vue",
+    "playwright-tests/**/*.ts",
+    "playwright.config.ts",
+    "vite.config.ts",
+    "jest.config.ts",
+    "nightwatch.conf.js",
+    "playwright-tests/playwright.config.ts"
   ],
-  "exclude": ["node_modules", "dist", "public", "tests", "cypress"],
+  "exclude": ["node_modules", "dist", "public", "cypress"],
   "compilerOptions": {
+    "esModuleInterop": true,
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["jest"]
   }
 }

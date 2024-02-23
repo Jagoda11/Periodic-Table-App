@@ -32,7 +32,7 @@
             <th scope="row">{{ period }}</th>
             <td v-for="group in 18" :key="`period-${period}-group-${group}`" class="grid-cell">
               <div
-              v-if="getElement(period, group) && isElementVisible(getElement(period, group))"
+              v-if="getElement(period, group) && isElementVisible(getElement(period, group) as ElementData)"
 
                 :class="{
                   highlighted: isHighlighted(getElement(period, group)?.block),
@@ -71,6 +71,7 @@
       import elementsData from '@/assets/periodic-table-data.json' // Import the JSON data
 
       export default defineComponent({
+        name: 'PeriodicTable',
         setup() {
           const elements = ref<ElementData[]>(elementsData) // Your array of elements
           const periods = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8]) // Array representing periods 1 to 8
