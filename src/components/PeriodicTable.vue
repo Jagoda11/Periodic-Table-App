@@ -10,13 +10,14 @@
         aria-label="Element search"
       />
     </div>
+
     <!-- Invert Button -->
     <div class="text-end mb-3">
       <button class="btn btn-secondary" @click="invertTable">Invert</button>
     </div>
-
+<div class="table-responsive">
     <!-- Periodic Table -->
-    <table class="table table-bordered text-center">
+    <table class="table table-bordered text-center periodic-table">
       <thead>
         <!-- Group Numbers at the Top -->
         <tr>
@@ -31,9 +32,17 @@
           <td v-for="group in 18" :key="`period-${period}-group-${group}`">
             <div
               v-if="getElement(period, group)"
-              :class="{ highlighted: isHighlighted(getElement(period, group)?.block) }"
+              :class="{
+        highlighted: isHighlighted(getElement(period, group)?.block),
+        's-block': getElement(period, group)?.block === 's',
+        'p-block': getElement(period, group)?.block === 'p',
+        'd-block': getElement(period, group)?.block === 'd',
+        'f-block': getElement(period, group)?.block === 'f'
+          }"
               @click="handleClick(getElement(period, group))"
             >
+            {{ console.log("Block:", getElement(period, group)?.block) }} <!-- Add console.log here -->
+
               <div>{{ getElement(period, group)?.symbol }}</div>
               <div>{{ getElement(period, group)?.atomicNumber }}</div>
               <div>{{ getElement(period, group)?.name }}</div>
@@ -42,6 +51,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
 
     <!-- Element Details Panel -->
     <div v-if="selectedElement" class="element-details">
@@ -69,22 +79,34 @@
           const searchQuery = ref('')
 
           const filteredElements = computed(() => {
-            if (!searchQuery.value) {
-              return elements.value
-            }
-            return elements.value.filter((el) => {
-              return (
-                el.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-                el.symbol.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-                el.atomicNumber.toString().includes(searchQuery.value)
-              )
-            })
-          })
+  console.log("Search query:", searchQuery.value);
+  const query = searchQuery.value.trim().toLowerCase(); // Convert search query to lowercase and trim whitespace
+  console.log("Trimmed and lowercased query:", query);
+  
+  if (!query) {
+    console.log("No query, returning all elements:", elements.value);
+    return elements.value; // Return all elements if query is empty
+  }
+
+  const filtered: ElementData[] = elements.value.filter((element) => {
+    return (
+      element.name.toLowerCase().includes(query) ||
+      element.symbol.toLowerCase().includes(query) ||
+      element.atomicNumber.toString().includes(query)
+    );
+  });
+
+  console.log("Filtered elements:", filteredElements.value);
+  return filtered;
+});
 
           // Function to handle element click events
           const handleClick = (element: ElementData | null) => {
+            console.log("Clicked element:", element);
+
             // Early return if element is null to satisfy TypeScript's strict null checks
             if (element === null) return
+            console.log("Selected element:", selectedElement.value); // Log the selected element
             selectedElement.value = element // Set for details view
             // Check if the clicked element belongs to the highlighted block
             if (highlightedBlock.value === element.block) {
@@ -148,7 +170,83 @@
     </script>
 
     <style scoped>
-      .element-details {
+
+
+/* Basic styling for the periodic table */
+.periodic-table {
+    width: 100%;
+    max-width: 100%; 
+    overflow-x: auto;
+    border-collapse: collapse;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .periodic-table th,
+  .periodic-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  } 
+ 
+
+  /* Classification colors */
+  .s-block {
+    background-color: #f77f00; /* Orange */
+  }
+  .p-block {
+    background-color: #fca652; /* Light orange */
+  }
+  .d-block {
+    background-color: #d5d5d5; /* Light gray */
+  }
+  .f-block {
+    background-color: #aab7b8; /* Gray */
+  }
+
+ /* Responsive adjustments */
+ @media (max-width: 575px) {
+    .periodic-table th,
+    .periodic-table td {
+      padding: 0.5rem; /* Decrease padding on smaller screens */
+      font-size: 0.9; /* Decrease font size on smaller screens */
+    }
+  }
+
+  @media (min-width: 576px) {
+    .periodic-table th,
+    .periodic-table td {
+      font-size: 1rem; /* Adjust font size for small screens */
+    }
+  }
+
+  @media (min-width: 768px) {
+    .periodic-table th,
+    .periodic-table td {
+      font-size: 1.1rem; /* Adjust font size for medium screens */
+    }
+  }
+
+  @media (min-width: 992px) {
+    .periodic-table th,
+    .periodic-table td {
+      font-size: 1.2rem; /* Adjust font size for large screens */
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .periodic-table th,
+    .periodic-table td {
+      font-size: 1.3rem; /* Adjust font size for extra-large screens */
+    }
+  }
+
+  .element-details {
         /* Styling for mobile view */
         position: fixed;
         bottom: 0;
@@ -168,6 +266,7 @@
           margin-top: 20px;
         }
       }
+
 
       .cell {
         /* Applied Bootstrap responsive column classes, adjust cell styles for your needs */
