@@ -15,42 +15,42 @@
     <div class="text-end mb-3">
       <button class="btn btn-secondary" @click="invertTable">Invert</button>
     </div>
-<div class="table-responsive">
-    <!-- Periodic Table -->
-    <table class="table table-bordered text-center periodic-table">
-      <thead>
-        <!-- Group Numbers at the Top -->
-        <tr>
-          <th scope="col">Group Period</th>
-          <th v-for="group in 18" :key="'group-' + group" scope="col">{{ group }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Period Numbers Down the Side -->
-        <tr v-for="period in periods" :key="'period-' + period">
-          <th scope="row">{{ period }}</th>
-          <td v-for="group in 18" :key="`period-${period}-group-${group}`">
-            <div
-              v-if="getElement(period, group)"
-              :class="{
-        highlighted: isHighlighted(getElement(period, group)?.block),
-        's-block': getElement(period, group)?.block === 's',
-        'p-block': getElement(period, group)?.block === 'p',
-        'd-block': getElement(period, group)?.block === 'd',
-        'f-block': getElement(period, group)?.block === 'f'
-          }"
-              @click="handleClick(getElement(period, group))"
-            >
-            {{ console.log("Block:", getElement(period, group)?.block) }} <!-- Add console.log here -->
 
-              <div>{{ getElement(period, group)?.symbol }}</div>
-              <div>{{ getElement(period, group)?.atomicNumber }}</div>
-              <div>{{ getElement(period, group)?.name }}</div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Periodic Table -->
+    <div class="table-responsive">
+      <table class="table table-bordered text-center">
+        <thead>
+          <!-- Group Numbers at the Top -->
+          <tr>
+            <th scope="col">Group Period</th>
+            <th v-for="group in 18" :key="'group-' + group" scope="col">{{ group }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Period Numbers Down the Side -->
+          <tr v-for="period in periods" :key="'period-' + period">
+            <th scope="row">{{ period }}</th>
+            <td v-for="group in 18" :key="`period-${period}-group-${group}`" class="grid-cell">
+              <div
+              v-if="getElement(period, group) && isElementVisible(getElement(period, group))"
+
+                :class="{
+                  highlighted: isHighlighted(getElement(period, group)?.block),
+                  's-block': getElement(period, group)?.block === 's',
+                  'p-block': getElement(period, group)?.block === 'p',
+                  'd-block': getElement(period, group)?.block === 'd',
+                  'f-block': getElement(period, group)?.block === 'f'
+                }"
+                @click="handleClick(getElement(period, group))"
+              >
+                <div>{{ getElement(period, group)?.symbol }}</div>
+                <div>{{ getElement(period, group)?.atomicNumber }}</div>
+                <div>{{ getElement(period, group)?.name }}</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- Element Details Panel -->
@@ -78,8 +78,10 @@
           const selectedElement = ref<ElementData | null>(null) // Added for showing details
           const searchQuery = ref('')
 
+
+
           const filteredElements = computed(() => {
-  console.log("Search query:", searchQuery.value);
+  console.log("Search query updated:", searchQuery.value); // This line is added for monitoring
   const query = searchQuery.value.trim().toLowerCase(); // Convert search query to lowercase and trim whitespace
   console.log("Trimmed and lowercased query:", query);
   
@@ -96,9 +98,15 @@
     );
   });
 
-  console.log("Filtered elements:", filteredElements.value);
   return filtered;
 });
+
+  // Define isElementVisible within the setup function
+  const isElementVisible = (element: ElementData) => {
+      // This assumes each element has a unique identifier, like an atomic number, for comparison
+      return filteredElements.value.some(filteredElement => filteredElement.atomicNumber === element.atomicNumber);
+    };
+
 
           // Function to handle element click events
           const handleClick = (element: ElementData | null) => {
@@ -163,7 +171,8 @@
             handleClick,
             invertTable,
             getElement,
-            isHighlighted
+            isHighlighted,
+            isElementVisible
           }
         }
       })
@@ -171,8 +180,21 @@
 
     <style scoped>
 
+@media (max-width: 600px) {
+  .grid-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: dense;
+  }
+  .grid-cell {
+    grid-column: span 1;
+  }
+}
+
+
 
 /* Basic styling for the periodic table */
+
 .periodic-table {
     width: 100%;
     max-width: 100%; 
@@ -286,4 +308,5 @@
       .highlighted {
         background-color: #ffc107;
       }
+
     </style>
