@@ -13,6 +13,7 @@
     "src/shims-vue.d.ts",
     "src/typings",
     "src/**/*.ts",
+    "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.js",
     "src/**/*.vue",
@@ -43,15 +44,24 @@
     "vitest.config.ts",
     "jest.config.cjs",
     "nightwatch.conf.js",
-    "playwright-tests/playwright.config.ts"
+    "playwright-tests/playwright.config.ts",
+    ".eslintrc.cjs",
+    ".eslintrc.js",
+    ".eslintrc.json",
+    ".eslintrc.yaml",
+    ".eslintrc.yml",
+    ".eslintrc",
+    ".eslintignore",
+    ".prettierrc",
+    ".prettierrc.cjs"
   ],
   "exclude": ["node_modules", "dist", "public", "cypress"],
   "compilerOptions": {
     "esModuleInterop": true,
     "composite": true,
-    "noEmit": false, // Set this to true to prevent TypeScript from emitting JavaScript files
+    "noEmit": true, // Set this to true to prevent TypeScript from emitting JavaScript files
     "outDir": "./dist", // Specify the directory where JavaScript files will be outputted
-    "tsBuildInfoFile": "./tmp/tsconfig.app.tsbuildinfo", 
+    "tsBuildInfoFile": "./tmp/tsconfig.app.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

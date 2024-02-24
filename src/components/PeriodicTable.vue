@@ -67,8 +67,8 @@
 
     <script lang="ts">
       import { defineComponent, ref, computed } from 'vue'
-      import type { ElementData } from '@/types/ElementData'
-      import elementsData from '@/assets/periodic-table-data.json' // Import the JSON data
+      import type { ElementData } from '../types/ElementData'
+      import elementsData from '../assets/periodic-table-data.json' // Import the JSON data
 
       export default defineComponent({
         name: 'PeriodicTable',

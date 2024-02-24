@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PeriodicTable from '../components/PeriodicTable.vue'
+import PeriodicTable from '../../src/components/PeriodicTable.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
