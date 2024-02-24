@@ -1,6 +1,5 @@
 import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -10,6 +9,9 @@ import { defineConfig, devices } from '@playwright/test'
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
+console.log('Playwright configuration loaded.')
+
 export default defineConfig({
   testDir: './e2e',
   /* Maximum time one test can run for. */
@@ -30,6 +32,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+  testMatch: '**/*.{spec, test}.{ts, js}', // Update test match pattern
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
@@ -40,8 +43,9 @@ export default defineConfig({
     trace: 'on-first-retry',
 
     /* Only on CI systems run the tests headless */
-    headless: !!process.env.CI
-  },
+    headless: !!process.env.CI,
+    testMatch: '**/*.{spec, test}.{ts, js}'
+  } as any,
 
   /* Configure projects for major browsers */
   projects: [

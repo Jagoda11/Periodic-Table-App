@@ -15,5 +15,18 @@ module.exports = {
     sourceType: 'module', // Allows for the use of imports
     project: ['./tsconfig.eslint.json'],
     extraFileExtensions: ['.vue']
-  }
+  },
+  overrides: [
+    {
+      // Apply these rules specifically to Jest configuration files
+      files: ['jest.config.js'],
+      env: {
+        node: true // This ensures that ESLint understands Node.js global variables and Node.js scoping
+      },
+      rules: {
+        // Example rule override: turn off the 'no-undef' rule for Jest config
+        'no-undef': 'off'
+      }
+    }
+  ]
 }
