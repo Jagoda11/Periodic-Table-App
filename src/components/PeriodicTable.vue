@@ -30,22 +30,24 @@
           <!-- Period Numbers Down the Side -->
           <tr v-for="period in periods" :key="'period-' + period">
             <th scope="row">{{ period }}</th>
-            <td v-for="group in 18" :key="`period-${period}-group-${group}`" class="grid-cell">
+            <td v-for="(element, group) in Array(18).fill(0).map((_, i)=> getElement(period, i + 1))" :key="`period-${period}-group-${group}`" class="grid-cell">
               <div
-              v-if="getElement(period, group) && isElementVisible(getElement(period, group) as ElementData)"
+                v-if="element"
 
                 :class="{
-                  highlighted: isHighlighted(getElement(period, group)?.block),
-                  's-block': getElement(period, group)?.block === 's',
-                  'p-block': getElement(period, group)?.block === 'p',
-                  'd-block': getElement(period, group)?.block === 'd',
-                  'f-block': getElement(period, group)?.block === 'f'
+                  element: true,
+                  highlighted: isHighlighted(element?.block),
+                  dimmed: !isElementVisible(element),
+                  's-block': element?.block === 's',
+                  'p-block': element?.block === 'p',
+                  'd-block': element?.block === 'd',
+                  'f-block': element?.block === 'f'
                 }"
-                @click="handleClick(getElement(period, group))"
+                @click="handleClick(element)"
               >
-                <div>{{ getElement(period, group)?.symbol }}</div>
-                <div>{{ getElement(period, group)?.atomicNumber }}</div>
-                <div>{{ getElement(period, group)?.name }}</div>
+                <div class="element-number">{{ element?.atomicNumber }}</div>
+                <div class="element-symbol">{{ element?.symbol }}</div>
+                <div class="element-name">{{ element?.name }}</div>
               </div>
             </td>
           </tr>
@@ -74,7 +76,7 @@
         name: 'PeriodicTable',
         setup() {
           const elements = ref<ElementData[]>(elementsData) // Your array of elements
-          const periods = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8]) // Array representing periods 1 to 8
+          const periods = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9]) // Array representing periods 1 to 9
           const highlightedBlock = ref<string | null>(null)
           const selectedElement = ref<ElementData | null>(null) // Added for showing details
           const searchQuery = ref('')
@@ -85,7 +87,7 @@
   console.log("Search query updated:", searchQuery.value); // This line is added for monitoring
   const query = searchQuery.value.trim().toLowerCase(); // Convert search query to lowercase and trim whitespace
   console.log("Trimmed and lowercased query:", query);
-  
+
   if (!query) {
     console.log("No query, returning all elements:", elements.value);
     return elements.value; // Return all elements if query is empty
@@ -130,19 +132,6 @@
           // Function to invert the table
           const invertTable = () => {
             periods.value.reverse()
-
-            if (highlightedBlock.value) {
-              // Find the index of the first element with the highlighted block
-              const startIndex = elements.value.findIndex(
-                (element) => element.block === highlightedBlock.value
-              )
-
-              if (startIndex !== -1) {
-                // Move the elements with the highlighted block to the front of the array
-                const highlightedElements = elements.value.splice(startIndex)
-                elements.value.unshift(...highlightedElements)
-              }
-            }
           }
           // Function to get element by period and group
           const getElement = (period: number, group: number): ElementData | null => {
@@ -198,7 +187,7 @@
 
 .periodic-table {
     width: 100%;
-    max-width: 100%; 
+    max-width: 100%;
     overflow-x: auto;
     border-collapse: collapse;
     display: block;
@@ -215,8 +204,8 @@
 
   .table-responsive {
     overflow-x: auto;
-  } 
- 
+  }
+
 
   /* Classification colors */
   .s-block {
@@ -290,6 +279,32 @@
         }
       }
 
+      .element {
+        width: 50px;
+        height: 50px;
+        transition: transform 0.1s ease-in-out;
+      }
+
+      .element:hover {
+        transform: scale(1.4);
+      }
+
+      .element-number {
+        text-align: left;
+        padding-left: 10%;
+        font-size: 0.7rem;
+        line-height: 1.1rem;
+      }
+
+      .element-symbol {
+        line-height: 1.2rem;
+        font-size: 1.2rem;
+      }
+
+      .element-name {
+        font-size: 0.5rem;
+        padding: 0;
+      }
 
       .cell {
         /* Applied Bootstrap responsive column classes, adjust cell styles for your needs */
@@ -308,6 +323,9 @@
       }
       .highlighted {
         background-color: #ffc107;
+      }
+      .dimmed {
+        opacity: 0.15;
       }
 
     </style>
