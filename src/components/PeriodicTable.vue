@@ -173,10 +173,8 @@ export default defineComponent({
 
 <style scoped>
 @media (max-width: 600px) {
-  .grid-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-flow: dense;
+  .table-responsive {
+    overflow-x: auto;
   }
 
   .grid-cell {
@@ -189,10 +187,10 @@ export default defineComponent({
 }
 /* Classification colors */
 .s-block {
-  background-color: #5e9fe3f5;
+  background-color: #a2c8f0;
 }
 .p-block {
-  background-color: #e28790;
+  background-color: #f0b5bb;
 }
 .d-block {
   background-color: #8ed09d;
@@ -200,7 +198,7 @@ export default defineComponent({
 .f-block {
   background-color: #f2dc9b;
   color: black;
-  /* Since yellow has a low contrast ratio with white text */
+  /* Since yellow has a low contrast ratio*/
 }
 
 .element-details {
@@ -214,6 +212,7 @@ export default defineComponent({
   z-index: 100;
   padding: 1rem;
   box-sizing: border-box;
+  border-top: 3px solid #a2c8f0; /* Added border for visual separation */
 }
 
 @media (min-width: 768px) {
@@ -225,13 +224,21 @@ export default defineComponent({
 }
 
 .element {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   transition: transform 0.1s ease-in-out;
 }
 
-.element:hover {
-  transform: scale(1.4);
+.element:hover,
+.element:focus {
+  transform: scale(1.1);
+  outline: none;
+  box-shadow: 0 0 0 3px #f0b5bb;
+}
+.element:focus {
+  border: 2px solid #a2c8f0;
+  position: relative;
+  z-index: 1; /* Ensure focused element is visually prominent*/
 }
 
 .element-number {
@@ -253,9 +260,27 @@ export default defineComponent({
 
 .highlighted {
   background-color: #ffc107;
+  box-shadow: 0 0 0 2px black inset; /* shadow for depth */
 }
 
 .dimmed {
   opacity: 0.15;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 600px) {
+  .element {
+    width: 48px; /* Smaller touch targets for smaller screens, but still accessible */
+    height: 48px;
+  }
+  .element-number {
+    font-size: 0.8rem;
+  }
+  .element-symbol {
+    font-size: 1.4rem;
+  }
+  .element-name {
+    font-size: 0.6rem;
+  }
 }
 </style>
