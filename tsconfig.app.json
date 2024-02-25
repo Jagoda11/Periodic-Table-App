@@ -57,6 +57,14 @@
   ],
   "exclude": ["node_modules", "dist", "public", "cypress"],
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowJs": true,
+    "strict": true,
+    "incremental": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "composite": true,
     "noEmit": true, // Set this to true to prevent TypeScript from emitting JavaScript files
@@ -64,8 +72,9 @@
     "tsBuildInfoFile": "./tmp/tsconfig.app.tsbuildinfo",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "@/components/*": ["./src/components/*.vue"]
     },
-    "types": ["jest"]
+    "types": ["node", "jest", "vue"]
   }
 }

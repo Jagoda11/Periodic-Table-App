@@ -7,7 +7,7 @@ module.exports = {
     '^tests/(.*)$': '<rootDir>/tests/$1',
     '^components/(.*)$': '<rootDir>/src/components/$1'
   },
-  moduleFileExtensions: ['js', 'json', 'ts', 'vue', 'spec.ts'],
+  moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   transform: {
     '^.+\\.ts$': 'ts-jest', // Transforms TypeScript files using ts-jest
     '.*\\.(vue)$': '@vue/vue3-jest', // Transforms Vue files using @vue/vue3-jest

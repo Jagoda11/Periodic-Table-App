@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { expect } from '@jest/globals'
-import PeriodicTable from '../../src/components/PeriodicTable.vue'
+import PeriodicTable from './PeriodicTable.vue'
 
 // Mock data
 const mockElementsData = [
