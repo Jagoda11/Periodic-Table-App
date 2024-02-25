@@ -251,24 +251,6 @@ export default defineComponent({
   padding: 0;
 }
 
-.cell {
-  /* Applied Bootstrap responsive column classes, adjust cell styles for your needs */
-  border: 1px solid #dee2e6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.cell[aria-pressed='true'] {
-  background-color: #007bff;
-  color: #fff;
-  /* Improved contrast and a11y */
-}
-
 .highlighted {
   background-color: #ffc107;
 }
