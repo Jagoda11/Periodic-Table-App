@@ -38,6 +38,7 @@
     "tests/**/*.tsx",
     "tests/**/*.js",
     "tests/**/*.vue",
+    "tests.spec.ts",
     "playwright-tests/**/*.ts",
     "playwright.config.ts",
     "vite.config.ts",
@@ -53,7 +54,10 @@
     ".eslintrc",
     ".eslintignore",
     ".prettierrc",
-    ".prettierrc.cjs"
+    ".prettierrc.cjs",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
   ],
   "exclude": ["node_modules", "dist", "public", "cypress"],
   "compilerOptions": {
@@ -73,8 +77,29 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@/components/*": ["./src/components/*.vue"]
+      "@/components/*": ["./src/components/*.vue"],
+      "@App/*": ["src/*"],
+      "@App/components/*": ["./src/components/*.vue"],
+      "@App/views/*": ["./src/views/*.vue"],
+      "@App/assets/*": ["./src/assets/*"],
+      "@App/store/*": ["./src/store/*.ts"],
+      "@App/router/*": ["./src/router/*.ts"],
+      "@App/types/*": ["./src/types/*.ts"],
+      "@App/utils/*": ["./src/utils/*.ts"],
+      "@App/services/*": ["./src/services/*.ts"],
+      "@App/hooks/*": ["./src/hooks/*.ts"],
+      "@App/mocks/*": ["./src/mocks/*.ts"],
+      "@App/typings/*": ["./src/typings/*.ts"],
+      "@App/tests/*": ["./tests/*.ts"],
+      "@App/playwright-tests/*": ["./playwright-tests/*.ts"],
+      "@App/cypress/*": ["./cypress/*.ts"],
+      "@App/jest/*": ["./jest/*.ts"],
+      "@App/nightwatch/*": ["./nightwatch/*.ts"],
+      "@App/vite/*": ["./vite/*.ts"],
+      "@App/vitest/*": ["./vitest/*.ts"],
+      "@App/env/*": ["./env/*.ts"],
+      "@App/shims/*": ["./src/shims/*.ts"]
     },
-    "types": ["node", "jest", "vue"]
+    "types": ["node", "jest", "vue", "playwright"]
   }
 }
