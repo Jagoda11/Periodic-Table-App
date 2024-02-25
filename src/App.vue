@@ -6,7 +6,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/periodic-table">Periodic Table</RouterLink>
+        <RouterLink to="/periodic-table"></RouterLink>
       </nav>
     </div>
   </header>

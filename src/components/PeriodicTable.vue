@@ -1,7 +1,8 @@
 <template>
   <div class="container mt-4">
     <!-- Search Input -->
-    <div class="search-container text-center my-3">
+      <div class="row">
+      <div class="col-lg-8 col-md-7 col-sm-12 mb-3">
       <input
         v-model="searchQuery"
         type="text"
@@ -12,9 +13,11 @@
     </div>
 
     <!-- Invert Button -->
-    <div class="text-end mb-3">
+    <div class="col-lg-4 col-md-5 col-sm-12 text-end mb-3">
       <button class="btn btn-secondary" @click="invertTable">Invert</button>
     </div>
+  </div>
+
 
     <!-- Periodic Table -->
     <div class="table-responsive">
