@@ -209,16 +209,17 @@
 
   /* Classification colors */
   .s-block {
-    background-color: #f77f00; /* Orange */
+    background-color: #5e9fe3f5;
   }
   .p-block {
-    background-color: #fca652; /* Light orange */
+    background-color: #e28790;
   }
   .d-block {
-    background-color: #d5d5d5; /* Light gray */
+    background-color: #8ed09d;
   }
   .f-block {
-    background-color: #aab7b8; /* Gray */
+    background-color: #f2dc9b;
+  color: black; /* Since yellow has a low contrast ratio with white text */
   }
 
  /* Responsive adjustments */
