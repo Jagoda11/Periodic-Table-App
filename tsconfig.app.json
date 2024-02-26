@@ -57,10 +57,10 @@
     ".prettierrc.cjs",
     "src/**/*.vue"
   ],
-  "exclude": ["node_modules", "dist", "public", "cypress", "*src/**/*.spec.ts"],
+  "exclude": ["node_modules", "dist", "public", "src/**/*.spec.ts"],
   "compilerOptions": {
     "target": "ESNext",
-    "module": "CommonJS",
+    "module": "ESNext",
     "allowJs": true,
     "strict": true,
     "incremental": true,
