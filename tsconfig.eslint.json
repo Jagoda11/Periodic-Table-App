@@ -16,8 +16,7 @@
   "exclude": [
     "node_modules",
     "dist",
-    "public",
-    "src/**/*.spec.ts"
+    "public"
     // exclude any directory you do not want TypeScript to process for linting
   ]
 }
