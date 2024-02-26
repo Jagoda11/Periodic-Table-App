@@ -10,7 +10,9 @@
     "playwright.config.ts",
     "vite.config.ts",
     "env.d.ts",
-    "shims-vue.d.ts"
+    "shims-vue.d.ts",
+    "src/**/*.spec.ts",
+    "tests/**/*.ts"
     // Add any other files outside "src" that you want ESLint to cover
   ],
   "exclude": [
