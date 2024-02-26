@@ -1,65 +1,71 @@
-# periodic-table-app
+# Periodic Table App
 
-This template should help get you started developing with Vue 3 in Vite.
+This project is an interactive periodic table of elements, built using Vue 3. It utilizes modern web technologies and tools to provide a rich user experience with reactive components and state management.
 
-## Recommended IDE Setup
+## Technologies and Tools
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Core**: Vue 3 for the frontend framework, Pinia for state management, and Vue Router for SPA routing.
+- **Styling**: Bootstrap for responsive UI components and layout.
+- **Development**: Vite as the build tool and development server.
+- **Testing**:
+  - Jest for unit testing (currently facing integration challenges with TypeScript).
+  - Playwright for end-to-end testing (integration challenges).
+  - Lighthouse for performance auditing (integration challenges).
+- **Code Quality**: ESLint for linting and Prettier for code formatting.
+- **TypeScript**: Used throughout the project for type safety.
+- **CI/CD**: GitHub Actions is configured for the `main` branch, automating linting, building, and preliminary test runs.
+- **Utilities**: Includes Husky for pre-commit hooks, and Lint-Staged for staged files linting.
 
-## Type Support for `.vue` Imports in TS
+## Current Challenges
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+We are currently facing difficulties integrating our TypeScript tests with Jest, Playwright, and Lighthouse within our CI/CD pipeline. Efforts are ongoing to resolve these integration issues to ensure robust testing across the application.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Installation and Setup
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+To get started with the Periodic Table App, follow these steps:
 
-## Customize configuration
+1. **Clone the repository**:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+    ```bash
+    git clone https://github.com/Jagoda11/periodic-table-app.git
+    cd periodic-table-app
+    ```
 
-## Project Setup
+2. **Install dependencies**:
 
-```sh
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-### Compile and Hot-Reload for Development
+3. **Run the development server**:
 
-```sh
-npm run dev
-```
+    ```bash
+    npm run dev
+    ```
 
-### Type-Check, Compile and Minify for Production
+    This will start the application on a local development server, typically available at `http://localhost:3000`.
 
-```sh
-npm run build
-```
+4. **Build for production**:
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+    ```bash
+    npm run build
+    ```
 
-```sh
-# Install browsers for the first run
-npx playwright install
+    This compiles and minifies the application for optimal performance in production.
 
-# When testing on CI, must build the project first
-npm run build
+5. **Lint the project**:
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+    ```bash
+    npm run lint
+    ```
 
-### Lint with [ESLint](https://eslint.org/)
+    This command will check your code for linting errors and fix them automatically wherever possible.
 
-```sh
-npm run lint
-```
+## Additional Resources
+
+- **License**: For more information on how you can use this project, see the [LICENSE.md](./LICENSE.md) file.
+- **Collaboration**: If you're interested in contributing to the project, please review our [CONTRIBUTION.md](./CONTRIBUTION.md) guide for details on how to get started.
+
+## Acknowledgments
+
+This project utilizes various open-source libraries and frameworks. We extend our gratitude to the contributors of these projects.
