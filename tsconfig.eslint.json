@@ -5,7 +5,7 @@
     "src/**/*.vue",
     "src/**/*.ts",
     ".eslintrc.cjs",
-    "jest.config.ts",
+    "jest.config.cjs",
     "playwright-tests/**/*.ts",
     "playwright.config.ts",
     "vite.config.ts",
@@ -14,7 +14,10 @@
     // Add any other files outside "src" that you want ESLint to cover
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "public",
+    "src/**/*.spec.ts"
     // exclude any directory you do not want TypeScript to process for linting
   ]
 }

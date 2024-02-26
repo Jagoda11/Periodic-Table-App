@@ -1,3 +1,5 @@
-jest.config.cjs
-/dist/
-/auto-generated/
+node_modules/
+dist/
+public/
+*.min.js
+coverage/
