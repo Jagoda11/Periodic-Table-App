@@ -55,14 +55,12 @@
     ".eslintignore",
     ".prettierrc",
     ".prettierrc.cjs",
-    "src/**/*.ts",
-    "src/**/*.tsx",
     "src/**/*.vue"
   ],
-  "exclude": ["node_modules", "dist", "public", "cypress"],
+  "exclude": ["node_modules", "dist", "public", "cypress", "*src/**/*.spec.ts"],
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
     "allowJs": true,
     "strict": true,
     "incremental": true,
@@ -70,6 +68,9 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "sourceMap": true,
     "composite": true,
     "noEmit": true, // Set this to true to prevent TypeScript from emitting JavaScript files
     "outDir": "./dist", // Specify the directory where JavaScript files will be outputted
@@ -100,6 +101,7 @@
       "@App/env/*": ["./env/*.ts"],
       "@App/shims/*": ["./src/shims/*.ts"]
     },
+    "lib": ["esnext", "dom"],
     "types": ["node", "jest", "vue", "playwright"]
   }
 }
