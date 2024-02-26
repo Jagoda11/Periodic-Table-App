@@ -64,7 +64,10 @@
 
     <!-- Element Details Panel -->
     <div v-if="selectedElement" class="element-details">
-      <h3>Details for {{ selectedElement.name }}</h3>
+      <div class="details-header">
+        <h3>Details for {{ selectedElement.name }}</h3>
+        <button @click="closeDetails">Close</button>
+      </div>
       <p><strong>Symbol:</strong> {{ selectedElement.symbol }}</p>
       <p><strong>Atomic Number:</strong> {{ selectedElement.atomicNumber }}</p>
       <p><strong>Atomic Weight:</strong> {{ selectedElement.atomicWeight }}</p>
@@ -81,16 +84,14 @@ import type { ElementData } from '../types/ElementData'
 export default defineComponent({
   name: 'PeriodicTable',
   setup() {
-    const elements = ref<ElementData[]>(elementsData) // Your array of elements
-    const periods = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9]) // Array representing periods 1 to 9
+    const elements = ref<ElementData[]>(elementsData)
+    const periods = ref<number[]>([1, 2, 3, 4, 5, 6, 7, 8, 9])
     const highlightedBlock = ref<string | null>(null)
     const selectedElement = ref<ElementData | null>(null) // Added for showing details
     const searchQuery = ref('')
 
     const filteredElements = computed(() => {
-      console.log('Search query updated:', searchQuery.value) // This line is added for monitoring
-      const query = searchQuery.value.trim().toLowerCase() // Convert search query to lowercase and trim whitespace
-      console.log('Trimmed and lowercased query:', query)
+      const query = searchQuery.value.trim().toLowerCase()
 
       if (!query) {
         console.log('No query, returning all elements:', elements.value)
@@ -108,50 +109,42 @@ export default defineComponent({
       return filtered
     })
 
-    // Define isElementVisible within the setup function
     const isElementVisible = (element: ElementData) => {
-      // This assumes each element has a unique identifier, like an atomic number, for comparison
       return filteredElements.value.some(
         (filteredElement) => filteredElement.atomicNumber === element.atomicNumber
       )
     }
 
-    // Function to handle element click events
     const handleClick = (element: ElementData | null) => {
       console.log('Clicked element:', element)
 
       // Early return if element is null to satisfy TypeScript's strict null checks
       if (element === null) return
-      console.log('Selected element:', selectedElement.value) // Log the selected element
       selectedElement.value = element // Set for details view
-      // Check if the clicked element belongs to the highlighted block
       if (highlightedBlock.value === element.block) {
-        // If yes, remove the highlight
         highlightedBlock.value = null
       } else {
-        // If not, highlight the block to which the element belongs
         highlightedBlock.value = element.block
       }
     }
 
-    // Function to invert the table
     const invertTable = () => {
       periods.value.reverse()
     }
     // Function to get element by period and group
     const getElement = (period: number, group: number): ElementData | null => {
-      // Implement the logic to find the element in the elements array
-      // Return null if the element is not found
-      // This function will depend on your data structure and how elements are stored
-
       return (
         elements.value.find((element) => element.row === period && element.column === group) || null
       )
     }
 
-    // isHighlighted method definition
     const isHighlighted = (elementBlock: string | undefined) => {
       return elementBlock === highlightedBlock.value
+    }
+
+    // Function to close the details panel
+    const closeDetails = () => {
+      selectedElement.value = null
     }
 
     return {
@@ -165,7 +158,8 @@ export default defineComponent({
       invertTable,
       getElement,
       isHighlighted,
-      isElementVisible
+      isElementVisible,
+      closeDetails
     }
   }
 })
@@ -238,7 +232,7 @@ export default defineComponent({
 .element:focus {
   border: 2px solid #a2c8f0;
   position: relative;
-  z-index: 1; /* Ensure focused element is visually prominent*/
+  z-index: 1;
 }
 
 .element-number {
@@ -266,6 +260,11 @@ export default defineComponent({
 .dimmed {
   opacity: 0.15;
 }
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 /* Responsive Design Adjustments */
 @media (max-width: 600px) {
@@ -281,6 +280,12 @@ export default defineComponent({
   }
   .element-name {
     font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 590px) {
+  .element-name {
+    font-size: 0.4rem;
   }
 }
 </style>

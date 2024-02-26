@@ -519,7 +519,7 @@
       "atomicWeight": "140.12",
       "block": "f",
       "row": 8,
-      "column": 4
+      "column": 3
     },
     {
       "name": "Praseodymium",
@@ -528,7 +528,7 @@
       "atomicWeight": "140.91",
       "block": "f",
       "row": 8,
-      "column": 5
+      "column": 4
     },
     {
       "name": "Neodymium",
@@ -537,7 +537,7 @@
       "atomicWeight": "144.24",
       "block": "f",
       "row": 8,
-      "column": 6
+      "column": 5
     },
     {
       "name": "Promethium",
@@ -546,7 +546,7 @@
       "atomicWeight": "[145]",
       "block": "f",
       "row": 8,
-      "column": 7
+      "column": 6
     },
     {
       "name": "Samarium",
@@ -555,7 +555,7 @@
       "atomicWeight": "150.36",
       "block": "f",
       "row": 8,
-      "column": 8
+      "column": 7
     },
     {
       "name": "Europium",
@@ -564,7 +564,7 @@
       "atomicWeight": "151.96",
       "block": "f",
       "row": 8,
-      "column": 9
+      "column": 8
     },
     {
       "name": "Gadolinium",
@@ -573,7 +573,7 @@
       "atomicWeight": "157.25",
       "block": "f",
       "row": 8,
-      "column": 10
+      "column": 9
     },
     {
       "name": "Terbium",
@@ -582,7 +582,7 @@
       "atomicWeight": "158.93",
       "block": "f",
       "row": 8,
-      "column": 11
+      "column": 10
     },
     {
       "name": "Dysprosium",
@@ -591,7 +591,7 @@
       "atomicWeight": "162.5",
       "block": "f",
       "row": 8,
-      "column": 12
+      "column": 11
     },
     {
       "name": "Holmium",
@@ -600,7 +600,7 @@
       "atomicWeight": "164.93",
       "block": "f",
       "row": 8,
-      "column": 13
+      "column": 12
     },
     {
       "name": "Erbium",
@@ -609,7 +609,7 @@
       "atomicWeight": "167.26",
       "block": "f",
       "row": 8,
-      "column": 14
+      "column": 13
     },
     {
       "name": "Thulium",
@@ -618,7 +618,7 @@
       "atomicWeight": "168.93",
       "block": "f",
       "row": 8,
-      "column": 15
+      "column": 14
     },
     {
       "name": "Ytterbium",
@@ -627,7 +627,7 @@
       "atomicWeight": "173.05",
       "block": "f",
       "row": 8,
-      "column": 16
+      "column": 15
     },
     {
       "name": "Lutenium",
@@ -636,7 +636,7 @@
       "atomicWeight": "174.97",
       "block": "f",
       "row": 8,
-      "column": 17
+      "column": 16
     },
     {
       "name": "Hafnium",
@@ -807,7 +807,7 @@
       "atomicWeight": "232.04",
       "block": "f",
       "row": 9,
-      "column": 4
+      "column": 3
     },
     {
       "name": "Protactinium",
@@ -816,7 +816,7 @@
       "atomicWeight": "231.04",
       "block": "f",
       "row": 9,
-      "column": 5
+      "column": 4
     },
     {
       "name": "Uranium",
@@ -825,7 +825,7 @@
       "atomicWeight": "238.03",
       "block": "f",
       "row": 9,
-      "column": 6
+      "column": 5
     },
     {
       "name": "Neptunium",
@@ -834,7 +834,7 @@
       "atomicWeight": "[237]",
       "block": "f",
       "row": 9,
-      "column": 7
+      "column": 6
     },
     {
       "name": "Plutonium",
@@ -843,7 +843,7 @@
       "atomicWeight": "[244]",
       "block": "f",
       "row": 9,
-      "column": 8
+      "column": 7
     },
     {
       "name": "Americium",
@@ -852,7 +852,7 @@
       "atomicWeight": "[243]",
       "block": "f",
       "row": 9,
-      "column": 9
+      "column": 8
     },
     {
       "name": "Curium",
@@ -861,7 +861,7 @@
       "atomicWeight": "[247]",
       "block": "f",
       "row": 9,
-      "column": 10
+      "column": 9
     },
     {
       "name": "Berkelium",
@@ -870,7 +870,7 @@
       "atomicWeight": "[247]",
       "block": "f",
       "row": 9,
-      "column": 11
+      "column": 10
     },
     {
       "name": "Californium",
@@ -879,7 +879,7 @@
       "atomicWeight": "[251]",
       "block": "f",
       "row": 9,
-      "column": 12
+      "column": 11
     },
     {
       "name": "Einsteinium",
@@ -888,7 +888,7 @@
       "atomicWeight": "[252]",
       "block": "f",
       "row": 9,
-      "column": 13
+      "column": 12
     },
     {
       "name": "Fermium",
@@ -897,7 +897,7 @@
       "atomicWeight": "[257]",
       "block": "f",
       "row": 9,
-      "column": 14
+      "column": 13
     },
     {
       "name": "Mendelevium",
@@ -906,7 +906,7 @@
       "atomicWeight": "[258]",
       "block": "f",
       "row": 9,
-      "column": 15
+      "column": 14
     },
     {
       "name": "Nobelium",
@@ -915,7 +915,7 @@
       "atomicWeight": "[259]",
       "block": "f",
       "row": 9,
-      "column": 16
+      "column": 15
     },
     {
       "name": "Lawrencium",
@@ -924,7 +924,7 @@
       "atomicWeight": "[266]",
       "block": "f",
       "row": 9,
-      "column": 17
+      "column": 16
     },
     {
       "name": "Rutherfordium",
