@@ -19,7 +19,7 @@ module.exports = {
   overrides: [
     {
       // Apply these rules specifically to Jest configuration files
-      files: ['jest.config.cjs'],
+      files: ['jest.config.ts', 'jest.setup.ts'],
       env: {
         node: true // This ensures that ESLint understands Node.js global variables and Node.js scoping
       },
