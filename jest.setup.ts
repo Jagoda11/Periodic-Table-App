@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { createApp } from 'vue'
 import { config } from '@vue/test-utils'
 import { createPinia } from 'pinia'
 import type { Router } from 'vue-router'

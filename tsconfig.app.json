@@ -70,6 +70,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "moduleResolution": "node",
     "jsx": "preserve",
     "sourceMap": true,
@@ -104,6 +105,6 @@
       "@App/shims/*": ["./src/shims/*.ts"]
     },
     "lib": ["esnext", "dom"],
-    "types": ["node", "jest", "vue", "playwright"]
+    "types": ["node", "jest", "vue", "playwright", "@vue/test-utils"]
   }
 }

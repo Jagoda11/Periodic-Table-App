@@ -77,6 +77,8 @@
 </template>
 
 <script lang="ts">
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { createApp } from 'vue'
 import { computed, defineComponent, ref } from 'vue'
 import elementsData from '../assets/periodic-table-data.json' // Import the JSON data
 import type { ElementData } from '../types/ElementData'

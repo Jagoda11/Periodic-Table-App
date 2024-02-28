@@ -1,5 +1,7 @@
-import { mount } from '@vue/test-utils'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { createApp } from 'vue'
 import { expect } from '@jest/globals'
+import { mount } from '@vue/test-utils'
 import PeriodicTable from './PeriodicTable.vue'
 
 // Mock data
