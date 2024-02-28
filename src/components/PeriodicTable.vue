@@ -35,7 +35,9 @@
             <td
               v-for="(element, group) in Array(18)
                 .fill(0)
-                .map((_, i) => getElement(period, i + 1))"
+                .map((_, i) => {
+                  return getElement(period, i + 1)
+                })"
               :key="`period-${period}-group-${group}`"
               class="grid-cell"
             >
@@ -134,10 +136,36 @@ export default defineComponent({
       periods.value.reverse()
     }
     // Function to get element by period and group
-    const getElement = (period: number, group: number): ElementData | null => {
+    /*    const getElement = (period: number, group: number): ElementData | null => {
+   
+      const element = elements.value.find(
+        (element) => element.row === period && element.column === group
+      )
+      
       return (
         elements.value.find((element) => element.row === period && element.column === group) || null
       )
+    } */
+
+    const getElement = (period: number, group: number): ElementData | null => {
+      if (elements.value && Array.isArray(elements.value)) {
+        const element = elements.value.find((el) => {
+          const match = el.row === period && el.column === group
+          if (match) {
+            console.log('Found matching element:', el)
+          } else {
+            console.log('No match for element:', el)
+          }
+          return match
+        })
+        if (element) {
+          console.log(`Found element:`, element)
+        } else {
+          console.log('No element found')
+        }
+        return element || null
+      }
+      return null
     }
 
     const isHighlighted = (elementBlock: string | undefined) => {

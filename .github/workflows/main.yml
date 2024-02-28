@@ -27,10 +27,10 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      # Temporarily disable unit and end-to-end tests due to integration issues
-      # - name: Run unit tests
-      #   run: npm run test
+      - name: Run unit tests
+        run: npm run test
 
+      # Temporarily disable unit and end-to-end tests due to integration issues
       # - name: Run end-to-end tests
       #   run: npm run test:e2e
 
