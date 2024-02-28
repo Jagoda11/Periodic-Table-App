@@ -8,7 +8,7 @@ This project is an interactive periodic table of elements, built using Vue 3. It
 - **Styling**: Bootstrap for responsive UI components and layout.
 - **Development**: Vite as the build tool and development server.
 - **Testing**:
-  - Jest for unit testing (currently facing integration challenges with TypeScript).
+  - Jest for unit testing 
   - Playwright for end-to-end testing (integration challenges).
   - Lighthouse for performance auditing (integration challenges).
 - **Code Quality**: ESLint for linting and Prettier for code formatting.
@@ -18,7 +18,7 @@ This project is an interactive periodic table of elements, built using Vue 3. It
 
 ## Current Challenges
 
-We are currently facing difficulties integrating our TypeScript tests with Jest, Playwright, and Lighthouse within our CI/CD pipeline. Efforts are ongoing to resolve these integration issues to ensure robust testing across the application.
+We are currently facing difficulties integrating our TypeScript tests with Playwright, and Lighthouse within our CI/CD pipeline. Efforts are ongoing to resolve these integration issues to ensure robust testing across the application.
 
 ## Installation and Setup
 
@@ -52,14 +52,23 @@ To get started with the Periodic Table App, follow these steps:
     ```
 
     This compiles and minifies the application for optimal performance in production.
+    
+ 5. **Run tests**:
 
-5. **Lint the project**:
+    ```bash
+    npm run test
+    ```
+
+    This command executes the test suite using Jest.
+
+6. **Lint the project**:
 
     ```bash
     npm run lint
     ```
 
     This command will check your code for linting errors and fix them automatically wherever possible.
+
 
 ## Additional Resources
 
