@@ -25,7 +25,10 @@ const config: Config = {
     '.*\\.(vue)$': '@vue/vue3-jest',
     '^.+\\.js$': 'babel-jest'
   },
-  testPathIgnorePatterns: ['/node_modules/', '/playwright-tests/', '/cypress-tests/', '/dist/']
+  testPathIgnorePatterns: ['/node_modules/', '/playwright-tests/', '/cypress-tests/', '/dist/'],
+  testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons']
+  }
 }
 
 export default config
