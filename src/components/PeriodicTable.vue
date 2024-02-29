@@ -1,5 +1,7 @@
 <template>
-  <div class="container mt-4">
+  <!--   <div class="container mt-4"> -->
+  <!--  better look when scrolling content not to stretched on the screen -->
+  <div class="container-fluid mt-4">
     <!-- Search Input -->
     <div class="row">
       <div class="col-lg-8 col-md-7 col-sm-12 mb-3">
@@ -135,34 +137,15 @@ export default defineComponent({
     const invertTable = () => {
       periods.value.reverse()
     }
-    // Function to get element by period and group
-    /*    const getElement = (period: number, group: number): ElementData | null => {
-   
-      const element = elements.value.find(
-        (element) => element.row === period && element.column === group
-      )
-      
-      return (
-        elements.value.find((element) => element.row === period && element.column === group) || null
-      )
-    } */
 
     const getElement = (period: number, group: number): ElementData | null => {
       if (elements.value && Array.isArray(elements.value)) {
         const element = elements.value.find((el) => {
           const match = el.row === period && el.column === group
-          if (match) {
-            console.log('Found matching element:', el)
-          } else {
-            console.log('No match for element:', el)
-          }
+
           return match
         })
-        if (element) {
-          console.log(`Found element:`, element)
-        } else {
-          console.log('No element found')
-        }
+
         return element || null
       }
       return null
