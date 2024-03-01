@@ -12,7 +12,7 @@
     "test-inspect": "echo '🔍 Inspecting tests...' && node --inspect node_modules/jest/bin/jest.js",
     "test:watch": "echo '👓 Watching tests...' && jest --watch",
     "test:coverage": "echo '📊 Generating test coverage...' && jest --coverage",
-    "test:e2e": "echo '🌐 Running E2E tests...' && npx playwright test",
+    "test:e2e": "echo '🌐 Running E2E tests...' && npx playwright test --config=playwright-tests/playwright.config.ts",
     "test:e2e:watch": "echo '👀 Watching E2E tests...' && npx playwright test --watch",
     "test:e2e:debug": "echo '🐛 Debugging E2E tests...' && npx playwright test --debug",
     "test:e2e:coverage": "echo '📊 Generating E2E test coverage...' && npx playwright test --collect=coverage",

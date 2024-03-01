@@ -9,10 +9,21 @@ export default defineConfig({
   server: {
     port: 3000
   },
-  plugins: [vue({}), vueJsx()],
+  plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
       '@': 'src'
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      input: '/src/main.ts'
+    }
+  },
+  optimizeDeps: {
+    include: ['playwright']
+  },
+  // Enable automatic page reloading during development
+  // when files change
+  refresh: true
 })

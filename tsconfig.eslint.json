@@ -19,7 +19,12 @@
   "exclude": [
     "node_modules",
     "dist",
-    "public"
+    "public",
+    "playwright-tests/**/*.js",
+    "playwright-tests/**/*.map",
+    "playwright-tests/**/*.html",
+    "playwright-report/extractFailedTests.ts",
+    "playwright-report/index.html"
     // exclude any directory you do not want TypeScript to process for linting
   ]
 }

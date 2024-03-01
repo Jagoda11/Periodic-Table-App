@@ -1,19 +1,10 @@
 import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 
 console.log('Playwright configuration loaded.')
 
 export default defineConfig({
-  testDir: './e2e',
+  testDir: './playwright-tests/e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -44,7 +35,7 @@ export default defineConfig({
 
     /* Only on CI systems run the tests headless */
     headless: !!process.env.CI,
-    testMatch: '**/*.{spec, test}.{ts, js}'
+    tsconfig: 'tsconfig.app.json'
   } as any,
 
   /* Configure projects for major browsers */
@@ -102,13 +93,10 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    /**
-     * Use the dev server by default for faster feedback loop.
-     * Use the preview server on CI for more realistic testing.
-     * Playwright will re-use the local server if there is already a dev-server running.
-     */
-    command: process.env.CI ? 'vite preview --port 3000' : 'vite dev',
+    //command: process.env.CI ? 'vite preview --port 3000' : 'vite dev',
+    command: 'vite dev',
     port: 3000,
+    timeout: 300000,
     reuseExistingServer: !process.env.CI
   }
 })
