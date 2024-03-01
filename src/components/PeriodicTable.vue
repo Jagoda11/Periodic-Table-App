@@ -35,25 +35,13 @@
           <tr v-for="period in periods" :key="'period-' + period">
             <th scope="row">{{ period }}</th>
             <td
-              v-for="(element, group) in Array(18)
-                .fill(0)
-                .map((_, i) => {
-                  return getElement(period, i + 1)
-                })"
+              v-for="(element, group) in getElementsForPeriod(period)"
               :key="`period-${period}-group-${group}`"
               class="grid-cell"
             >
               <div
-                v-if="element"
-                :class="{
-                  element: true,
-                  highlighted: isHighlighted(element?.block),
-                  dimmed: !isElementVisible(element),
-                  's-block': element?.block === 's',
-                  'p-block': element?.block === 'p',
-                  'd-block': element?.block === 'd',
-                  'f-block': element?.block === 'f'
-                }"
+                v-if="shouldDisplayElement(element)"
+                :class="getElementClasses(element)"
                 @click="handleClick(element)"
               >
                 <div class="element-number">{{ element?.atomicNumber }}</div>
@@ -160,6 +148,31 @@ export default defineComponent({
       selectedElement.value = null
     }
 
+    const getElementsForPeriod = (period: number): (ElementData | null)[] => {
+      return Array(18)
+        .fill(0)
+        .map((_, i) => {
+          return getElement(period, i + 1)
+        })
+    }
+
+    const getElementClasses = (element: ElementData | null) => {
+      if (!element) return 'element'
+      return {
+        element: true,
+        highlighted: isHighlighted(element.block),
+        dimmed: !isElementVisible(element),
+        's-block': element.block === 's',
+        'p-block': element.block === 'p',
+        'd-block': element.block === 'd',
+        'f-block': element.block === 'f'
+      }
+    }
+
+    const shouldDisplayElement = (element: ElementData | null) => {
+      return element !== null
+    }
+
     return {
       elements,
       periods,
@@ -172,7 +185,10 @@ export default defineComponent({
       getElement,
       isHighlighted,
       isElementVisible,
-      closeDetails
+      closeDetails,
+      getElementsForPeriod,
+      getElementClasses,
+      shouldDisplayElement
     }
   }
 })
