@@ -4,7 +4,7 @@ import { defineConfig, devices } from '@playwright/test'
 console.log('Playwright configuration loaded.')
 
 export default defineConfig({
-  testDir: './playwright-tests/e2e',
+  testDir: './e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
