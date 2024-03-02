@@ -31,7 +31,7 @@ export default defineConfig({
     baseURL: 'http://localhost:3001',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'retry-with-trace',
 
     /* Only on CI systems run the tests headless */
     headless: true,
