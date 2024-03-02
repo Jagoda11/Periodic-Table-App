@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "echo '🚀 Starting development server...' && vite",
     "build": "echo '🔨 Running type-check and building...' && run-p type-check \"build-only {@}\" --",
-    "preview": "echo '👀 Starting preview server...' && vite preview",
-    "clear-test-cache": "echo '🗑️ Clearing test cache...' && jest --clearCache",
+    "preview": "echo '👀 Starting preview server...' && vite preview --port 3001",    "clear-test-cache": "echo '🗑️ Clearing test cache...' && jest --clearCache",
     "test": "echo '🚀 Running tests...' && jest && echo '✅ Tests completed.'",
     "test-inspect": "echo '🔍 Inspecting tests...' && node --inspect node_modules/jest/bin/jest.js",
     "test:watch": "echo '👓 Watching tests...' && jest --watch",
@@ -21,7 +20,7 @@
     "audit": "echo '🔍 Auditing with Lighthouse...' && lighthouse http://localhost:3000 --view",
     "build-only": "echo '🔨 Building project...' && vite build && echo '✅ Build completed.'",
     "type-check": "echo '🔍 Type-checking...' && vue-tsc --build --force",
-    "lint": "echo '🔍 Linting files...' && eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore && echo '✅ Linting completed.'",
+    "lint": "echo '🔍 Linting files...' && eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix && echo '✅ Linting completed.'" ,
     "lint:fix": "echo '🛠️ Fixing lint issues...' && eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "echo '🎨 Formatting code...' && prettier --write src/",
     "vite:start": "echo '🚀 Starting Vite server...' && vite",
