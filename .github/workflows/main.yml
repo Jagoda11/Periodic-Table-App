@@ -24,6 +24,9 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
+      - name: Install Playwright browsers
+        run: npx playwright install
+
       - name: Type check
         run: npm run type-check
 
