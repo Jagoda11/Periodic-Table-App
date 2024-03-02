@@ -21,6 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Type check
         run: npm run type-check
 
