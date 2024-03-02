@@ -38,6 +38,9 @@ jobs:
 
       - name: Run end-to-end tests
         run: npm run test:e2e
+        env:
+          DEBUG: pw:api
+          PWDEBUG: 1
 
       - name: Build
         run: npm run build
