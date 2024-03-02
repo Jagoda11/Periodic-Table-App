@@ -8,12 +8,12 @@ test.describe('PeriodicTable Component', () => {
     console.log('Current page URL:', page.url())
 
     // Verify that the component is rendered
-    const componentExists = await page.waitForSelector('.container')
+    const componentExists = await page.waitForSelector('.container-fluid')
     console.log('Component exists:', !!componentExists)
     expect(componentExists).not.toBeNull()
 
     // Verify that the search input is rendered
-    const searchInputExists = await page.waitForSelector('.search-container input')
+    const searchInputExists = await page.waitForSelector('.form-control')
     expect(searchInputExists).not.toBeNull()
 
     // Verify that the invert button is rendered
@@ -30,8 +30,7 @@ test.describe('PeriodicTable Component', () => {
     await page.goto('http://localhost:3001')
 
     // Enter a search query in the input field
-    await page.fill('.search-container input', 'hydrogen')
-
+    await page.fill('.form-control', 'hydrogen')
     // Wait for the search results to update
     await page.waitForTimeout(1000) // Adjust timeout as needed
 
