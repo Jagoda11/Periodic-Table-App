@@ -8,20 +8,22 @@ test.describe('PeriodicTable Component', () => {
     console.log('Current page URL:', page.url())
 
     // Verify that the component is rendered
-    const componentExists = await page.waitForSelector('.container-fluid')
+    const componentExists = await page.waitForSelector('.container-fluid', { timeout: 5000 })
     console.log('Component exists:', !!componentExists)
     expect(componentExists).not.toBeNull()
 
     // Verify that the search input is rendered
-    const searchInputExists = await page.waitForSelector('.form-control')
+    const searchInputExists = await page.waitForSelector('.form-control', { timeout: 5000 })
     expect(searchInputExists).not.toBeNull()
 
     // Verify that the invert button is rendered
-    const invertButtonExists = await page.waitForSelector('.text-end button')
+    const invertButtonExists = await page.waitForSelector('.text-end button', { timeout: 5000 })
     expect(invertButtonExists).not.toBeNull()
 
     // Verify that the periodic table is rendered
-    const periodicTableExists = await page.waitForSelector('.table-responsive table')
+    const periodicTableExists = await page.waitForSelector('.table-responsive table', {
+      timeout: 5000
+    })
     expect(periodicTableExists).not.toBeNull()
   })
 
@@ -47,7 +49,7 @@ test.describe('PeriodicTable Component', () => {
     await page.click('.grid-cell')
 
     // Wait for the details panel to appear
-    const detailsPanelExists = await page.waitForSelector('.element-details')
+    const detailsPanelExists = await page.waitForSelector('.element-details', { timeout: 5000 })
     expect(detailsPanelExists).not.toBeNull()
 
     // Verify that the details of the selected element are displayed correctly
