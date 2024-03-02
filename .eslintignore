@@ -3,3 +3,4 @@ dist/
 public/
 *.min.js
 coverage/
+playwright-tests/extractFailedTests.cjs

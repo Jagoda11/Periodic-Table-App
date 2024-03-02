@@ -83,9 +83,14 @@ cypress.env.qa.json
 cypress.env.staging.json
 
 # Playwright test artifacts
-/playwright-tests/output/
-/playwright-tests/results/
-/playwright-tests/screenshots/
+/periodic-table-app/src/playwright-tests/output/
+/periodic-table-app/src/playwright-tests/results/
+/periodic-table-app/src/playwright-tests/screenshots/
+/periodic-table-app/src/playwright-tests/playwright-html-report/index.html
+/periodic-table-app/src/playwright-tests/extractedFailedTests.js
+/periodic-table-app/src/playwright-tests/extractedFailedTests.cjs
+/periodic-table-app/src/playwright-tests/extractedFailedTests.ts
+
 
 # Vite build output
 /build/
