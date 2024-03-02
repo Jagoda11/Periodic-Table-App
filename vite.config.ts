@@ -22,8 +22,5 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['playwright']
-  },
-  // Enable automatic page reloading during development
-  // when files change
-  refresh: true
+  }
 })
