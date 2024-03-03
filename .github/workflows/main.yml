@@ -32,9 +32,12 @@ jobs:
 
       - name: Start server
         run: |
-          npm run preview & 
+          npm run preview > server.log 2>&1 & 
           wait-on http://localhost:3001 &&
           sleep 5
+
+      - name: Print server logs
+        run: cat server.log
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
