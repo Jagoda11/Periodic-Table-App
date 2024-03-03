@@ -25,6 +25,7 @@ coverage
 *.staging*
 *.prod*
 *.production*
+.env
 
 # Editor directories and files
 .vscode/*

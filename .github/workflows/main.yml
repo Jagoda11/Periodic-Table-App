@@ -50,6 +50,8 @@ jobs:
         env:
           DEBUG: pw:api
           PWDEBUG: 1
+          VITE_APP_TITLE: ${{ secrets.VITE_APP_TITLE }}
+          TEST_BASE_URL: 'http://localhost:3001'
 
       - name: Build
         run: npm run build
