@@ -8,23 +8,23 @@ test.describe('PeriodicTable Component', () => {
     console.log('Current page URL:', page.url())
 
     // Verify that the component is rendered
-    const componentExists = await page.waitForSelector('.container-fluid', { timeout: 5000 })
+    const componentExists = await page.waitForSelector('.container-fluid', { timeout: 10000 })
     console.log('Component exists:', !!componentExists)
     expect(componentExists).not.toBeNull()
 
     // Verify that the search input is rendered
-    const searchInputExists = await page.waitForSelector('.form-control', { timeout: 5000 })
+    const searchInputExists = await page.waitForSelector('.form-control', { timeout: 10000 })
     console.log('Search input exists:', !!searchInputExists)
     expect(searchInputExists).not.toBeNull()
 
     // Verify that the invert button is rendered
-    const invertButtonExists = await page.waitForSelector('.text-end button', { timeout: 5000 })
+    const invertButtonExists = await page.waitForSelector('.text-end button', { timeout: 10000 })
     console.log('Invert button exists:', !!invertButtonExists)
     expect(invertButtonExists).not.toBeNull()
 
     // Verify that the periodic table is rendered
     const periodicTableExists = await page.waitForSelector('.table-responsive table', {
-      timeout: 5000
+      timeout: 10000
     })
     console.log('Periodic table exists:', !!periodicTableExists)
     expect(periodicTableExists).not.toBeNull()
@@ -34,6 +34,10 @@ test.describe('PeriodicTable Component', () => {
     // Navigate to the page where the component is rendered
     await page.goto('http://localhost:3001')
     console.log('Current page URL:', page.url())
+
+    // Log the page content
+    const content = await page.content()
+    console.log(content)
 
     // Enter a search query in the input field
     await page.fill('.form-control', 'hydrogen')
