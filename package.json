@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "echo '🚀 Starting development server...' && vite",
     "build": "echo '🔨 Running type-check and building...' && run-p type-check \"build-only {@}\" --",
-    "preview": "echo '👀 Starting preview server...' && vite preview --port 3001",  
-    "clear-test-cache": "echo '🗑️ Clearing test cache...' && jest --clearCache",
+    "preview": "echo '👀 Starting preview server...' && vite preview --port 3001 --host 0.0.0.0",    "clear-test-cache": "echo '🗑️ Clearing test cache...' && jest --clearCache",
     "test": "echo '🚀 Running tests...' && jest && echo '✅ Tests completed.'",
     "test-inspect": "echo '🔍 Inspecting tests...' && node --inspect node_modules/jest/bin/jest.js",
     "test:watch": "echo '👓 Watching tests...' && jest --watch",
