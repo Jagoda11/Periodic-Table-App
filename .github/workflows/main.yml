@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Start server
-        run: npm run start-server & sleep 20
+        run: npm run preview & sleep 20
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
