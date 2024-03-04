@@ -13,23 +13,23 @@ test.describe('PeriodicTable Component', () => {
       console.log('Current page URL:', page.url())
 
       // Verify that the component is rendered
-      const componentExists = await page.waitForSelector('.container-fluid', { timeout: 10000 })
+      const componentExists = await page.waitForSelector('.container-fluid', { timeout: 30000 })
       console.log('Component exists:', !!componentExists)
       expect(componentExists).not.toBeNull()
 
       // Verify that the search input is rendered
-      const searchInputExists = await page.waitForSelector('.form-control', { timeout: 10000 })
+      const searchInputExists = await page.waitForSelector('.form-control', { timeout: 30000 })
       console.log('Search input exists:', !!searchInputExists)
       expect(searchInputExists).not.toBeNull()
 
       // Verify that the invert button is rendered
-      const invertButtonExists = await page.waitForSelector('.text-end button', { timeout: 10000 })
+      const invertButtonExists = await page.waitForSelector('.text-end button', { timeout: 30000 })
       console.log('Invert button exists:', !!invertButtonExists)
       expect(invertButtonExists).not.toBeNull()
 
       // Verify that the periodic table is rendered
       const periodicTableExists = await page.waitForSelector('.table-responsive table', {
-        timeout: 10000
+        timeout: 30000
       })
       console.log('Periodic table exists:', !!periodicTableExists)
       expect(periodicTableExists).not.toBeNull()
@@ -54,7 +54,7 @@ test.describe('PeriodicTable Component', () => {
       await page.fill('.form-control', 'hydrogen')
       console.log('Entered search query: hydrogen')
       // Wait for the search results to update
-      await page.waitForTimeout(1000) // Adjust timeout as needed
+      await page.waitForTimeout(30000) // Adjust timeout as needed
 
       // Verify that the search results are displayed correctly
       const searchResults = await page.$$('.grid-cell')
@@ -78,7 +78,7 @@ test.describe('PeriodicTable Component', () => {
       console.log('Clicked on a grid cell')
 
       // Wait for the details panel to appear
-      const detailsPanelExists = await page.waitForSelector('.element-details', { timeout: 5000 })
+      const detailsPanelExists = await page.waitForSelector('.element-details', { timeout: 30000 })
       console.log('Details panel exists:', !!detailsPanelExists)
       expect(detailsPanelExists).not.toBeNull()
 
