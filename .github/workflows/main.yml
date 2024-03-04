@@ -30,6 +30,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check port availability
+        run: |
+          sudo lsof -i :3000 || echo "Port 3000 is available"
+          sudo lsof -i :3001 || echo "Port 3001 is available"
+
       - name: Start server
         run: |
           npm run preview > server.log 2>&1 &
