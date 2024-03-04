@@ -6,6 +6,10 @@ test.describe('PeriodicTable Component', () => {
       console.log('Starting test: should render correctly with default data')
       // Navigate to the page where the component is rendered
       await page.goto('http://localhost:3001')
+
+      // Wait for the page to be fully loaded
+      await page.waitForLoadState('load')
+
       console.log('Current page URL:', page.url())
 
       // Verify that the component is rendered
