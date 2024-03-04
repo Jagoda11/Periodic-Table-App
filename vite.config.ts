@@ -19,7 +19,8 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      input: '/src/main.ts'
+      input: 'src/main.ts'
+     // return this to /src/main.ts if stuff fail
     }
   },
   optimizeDeps: {
