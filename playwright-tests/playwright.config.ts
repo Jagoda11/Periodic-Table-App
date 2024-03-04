@@ -2,6 +2,7 @@ import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 
 console.log('Playwright configuration loaded.')
+console.log('TEST_BASE_URL:', process.env.TEST_BASE_URL)
 
 export default defineConfig({
   testDir: './e2e',
@@ -28,7 +29,7 @@ export default defineConfig({
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:3001',
+    baseURL: process.env.TEST_BASE_URL || 'http://localhost:3001',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retry-with-trace',
