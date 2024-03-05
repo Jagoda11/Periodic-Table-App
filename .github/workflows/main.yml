@@ -51,3 +51,9 @@ jobs:
           DEBUG: pw:api
           VITE_APP_TITLE: ${{ secrets.VITE_APP_TITLE }}
           TEST_BASE_URL: 'http://localhost:3001'
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v7
+        with:
+          urls: 'http://localhost:3001'
+          uploadArtifacts: true
