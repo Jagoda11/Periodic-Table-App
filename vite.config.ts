@@ -8,11 +8,7 @@ const port = parseInt(process.env.PORT || '3000') // Convert port value to numbe
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    port,
-    open: true,
-    hmr: {
-      overlay: true
-    }
+    port
   },
   plugins: [vue(), vueJsx()],
   resolve: {
@@ -21,18 +17,12 @@ export default defineConfig({
     }
   },
   build: {
-    sourcemap: true,
+    outDir: 'dist',
     rollupOptions: {
-      input: 'src/main.ts',
-      output: {
-        format: 'esm',
-        dir: 'dist'
-      },
-      external: ['playwright', 'vue', 'vue-router']
+      input: 'src/main.ts'
       // return this to /src/main.ts if stuff fail
     }
   },
-  publicDir: 'public',
   optimizeDeps: {
     include: ['playwright']
   }
