@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "echo '🚀 Starting development server...' && vite",
     "dev:e2e": "vite --port 3001",
+    "start-server": "vite --port 3001",
+    "wait-server": "wait-on http://localhost:3001",
+    "test:e2e:concurrently": "concurrently --kill-others \"start-server-and-test start-server http://localhost:3001 test:e2e\"",
+
     "build": "echo '🔨 Running type-check and building...' && run-p type-check \"build-only {@}\" --",
     "preview": "echo '👀 Starting preview server...' && vite preview --port 3001 --host 0.0.0.0",
     "clear-test-cache": "echo '🗑️ Clearing test cache...' && jest --clearCache",
@@ -57,6 +61,7 @@
     "@vue/test-utils": "^2.4.4",
     "@vue/tsconfig": "^0.5.1",
     "@vue/vue3-jest": "^29.2.6",
+    "concurrently": "^8.2.2",
     "conventional-changelog-cli": "^4.1.0",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.22.0",
@@ -73,7 +78,8 @@
     "typescript": "~5.3.3",
     "vite": "^5.1.4",
     "vite-plugin-checker": "^0.6.4",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^1.8.27",
+    "wait-on": "^7.2.0"
   },
   "husky": {
     "hooks": {
