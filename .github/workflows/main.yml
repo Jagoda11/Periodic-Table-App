@@ -7,55 +7,55 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 🛎️ Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: 📦 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '21'
 
-      - name: Install xvfb
+      - name: 🖥️ Install xvfb
         run: sudo apt-get install -y xvfb
 
-      - name: Setup Playwright
+      - name: 🎭 Setup Playwright
         uses: microsoft/playwright-github-action@v1
 
-      - name: Install dependencies
+      - name: 📥 Install dependencies
         run: npm install
 
-      - name: Build
+      - name: 🏗️ Build
         run: npm run build
 
-      - name: List build output
+      - name: 📂 List build output
         run: ls -l dist
 
-      - name: Install Playwright browsers
+      - name: 🌐 Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Install pnpm
+      - name: 📦 Install pnpm
         run: npm install -g pnpm
 
-      - name: Type check
+      - name: 🔍 Type check
         run: npm run type-check
 
-      - name: Lint
+      - name: 🧹 Lint
         run: npm run lint
 
-      - name: Run unit tests
+      - name: 🧪 Run unit tests
         run: npm run test
 
-      - name: Run end-to-end tests
+      - name: 🚀 Run end-to-end tests
         run: xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' npm run test:e2e:concurrently
         env:
           DEBUG: pw:api
           VITE_APP_TITLE: ${{ secrets.VITE_APP_TITLE }}
           TEST_BASE_URL: 'http://localhost:3001'
 
-      - name: Start server
+      - name: 🖥️ Start server
         run: npm run start-server & sleep 5
 
-      - name: Run Lighthouse
+      - name: 🚦 Run Lighthouse
         uses: treosh/lighthouse-ci-action@v7
         with:
           urls: 'http://localhost:3001'
