@@ -102,7 +102,10 @@ cypress.env.staging.json
 lighthouse-report.html
 lighthouse-error.html
 chromewebdata_*.report.html
-
+lighthouse.report.html
+lighthouse.report.json
+localhost_*.report.html
+localhost_*.report.json
 
 # Jest test artifacts
 /jest-tests/output/
