@@ -14,7 +14,7 @@
     "test:watch": "echo '👓 Watching tests...' && jest --watch",
     "test:coverage": "echo '📊 Generating test coverage...' && jest --coverage",
     "test:e2e": "echo '🌐 Running E2E tests...' && TEST_BASE_URL=http://localhost:3001 npx playwright test --config=playwright-tests/playwright.config.ts",
-    "test:e2e:ci": "start-server-and-test dev:e2e http://localhost:3001 test:e2e",
+    "test:e2e:ci": "start-server-and-test 'npm run dev:e2e' http://localhost:3001 'npm run test:e2e' --wait-on-timeout 60000",
     "test:e2e:watch": "echo '👀 Watching E2E tests...' && npx playwright test --watch",
     "test:e2e:debug": "echo '🐛 Debugging E2E tests...' && npx playwright test --debug",
     "test:e2e:coverage": "echo '📊 Generating E2E test coverage...' && npx playwright test --collect=coverage",

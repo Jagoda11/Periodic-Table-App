@@ -35,7 +35,7 @@ export default defineConfig({
     trace: 'retry-with-trace',
 
     /* Only on CI systems run the tests headless */
-    headless: true,
+    headless: process.env.CI ? false : true,
     tsconfig: 'tsconfig.app.json'
   } as any,
 
