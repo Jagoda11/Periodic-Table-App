@@ -71,7 +71,7 @@ jobs:
         run: npm run test
 
       - name: Run end-to-end tests
-        run: xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' npm run test:e2e
+        run: xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' npm run test:e2e:ci
         env:
           DEBUG: pw:api
           VITE_APP_TITLE: ${{ secrets.VITE_APP_TITLE }}
