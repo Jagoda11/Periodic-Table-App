@@ -8,14 +8,9 @@ jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      - name: Post welcome message 📨
+      - name: Log issue number
         uses: actions/github-script@v5
         with:
           script: |
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: ':tada: :sparkles: Hello, thanks for opening this issue! We will review it soon. :rocket:'
-            });
+            console.log(context.issue.number);
           github-token: ${{secrets.GITHUB_TOKEN}}
