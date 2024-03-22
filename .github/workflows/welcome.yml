@@ -12,6 +12,10 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            const issueComment = context.issue({ body: ':tada: :sparkles: Hello, thanks for opening this issue! We will review it soon. :rocket:' });
-            await github.rest.issues.createComment(issueComment);
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: ':tada: :sparkles: Hello, thanks for opening this issue! We will review it soon. :rocket:'
+            });
           github-token: ${{secrets.GITHUB_TOKEN}}
