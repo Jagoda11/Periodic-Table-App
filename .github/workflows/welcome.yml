@@ -1,4 +1,4 @@
-name: Welcome users
+name: Welcome New Contributors
 
 on:
   issues:
