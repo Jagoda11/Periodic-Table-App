@@ -12,10 +12,14 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            await octokit.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: ':tada: :sparkles: Hello, thanks for opening this issue! We will review it soon. :rocket:'
+            const issue_number = context.issue.number;
+            const repo = context.repo.repo;
+            const owner = context.repo.owner;
+            const body = ':tada: :sparkles: Hello, thanks for opening this issue! We will review it soon. :rocket:';
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body
             });
           github-token: ${{secrets.GITHUB_TOKEN}}
