@@ -8,9 +8,14 @@ jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      - name: Log issue number
+      - name: Post welcome message 📨
         uses: actions/github-script@v5
         with:
           script: |
-            console.log(context.issue.number);
+            await octokit.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: ':tada: :sparkles: Hello, thanks for opening this issue! We will review it soon. :rocket:'
+            });
           github-token: ${{secrets.GITHUB_TOKEN}}
