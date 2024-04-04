@@ -60,10 +60,3 @@ jobs:
         with:
           urls: 'http://localhost:3001'
           uploadArtifacts: true
-
-      - name: 🚀 Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.5
-        with:
-          token: ${{ secrets.PERIODIC_TABLE_DEPLOY }}
-          branch: gh-pages
-          folder: dist
