@@ -25,9 +25,5 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['playwright']
-  },
-  base:
-    process.env.NODE_ENV === 'production'
-      ? '/Periodic-Table-App/' // Change this to the name of your repository
-      : '/'
+  }
 })
