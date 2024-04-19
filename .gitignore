@@ -61,6 +61,7 @@ coverage
 test-results/
 playwright-report/
 jest-report/
+dist/
 
 # Dependency directories
 
