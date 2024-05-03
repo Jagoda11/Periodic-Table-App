@@ -2,17 +2,21 @@
 
 This project is an interactive periodic table of elements, built using Vue 3 🛠️. It utilizes modern web technologies and tools to provide a rich user experience with reactive components and state management.
 
+<p align="center">
+  <img src="./assets/periodic-table-vue.png" alt="Screenshot of the app" width="400"/>
+</p>
+
 ## Technologies and Tools 🛠️
 
-- **Core**: 
+- **Core**:
   - Vue 3 🖖 for the frontend framework.
   - Pinia 📦 for state management.
   - Vue Router 🚦 for SPA routing.
   
-- **Styling**: 
+- **Styling**:
   - Bootstrap 🎨 for responsive UI components and layout.
   
-- **Development**: 
+- **Development**:
   - Vite ⚡ as the build tool and development server.
   
 - **Testing**:
@@ -20,17 +24,17 @@ This project is an interactive periodic table of elements, built using Vue 3 �
   - Playwright 🎭 for end-to-end testing, simulating user interactions and verifying the app's behavior in a browser environment.
   - Lighthouse 🌅 for performance and quality auditing, providing insights into how the app can be optimized for speed, accessibility, and SEO.
   
-- **Code Quality**: 
+- **Code Quality**:
   - ESLint 🧹 for linting.
   - Prettier 🎨 for code formatting.
   
-- **TypeScript**: 
+- **TypeScript**:
   - Used throughout the project for type safety 🛡️.
   
-- **CI/CD**: 
+- **CI/CD**:
   - GitHub Actions 🚀 for automating linting, building, and test runs.
   
-- **Utilities**: 
+- **Utilities**:
   - Husky 🐶 for pre-commit hooks.
   - Lint-Staged 🚩 for staged files linting.
 
@@ -82,8 +86,6 @@ Here's a breakdown of the main npm scripts you'll use to develop, test, and audi
 
 By following these instructions and using the scripts provided, you'll be able to effectively develop, test, and optimize your Periodic Table App. Happy coding! 🎉
 
-
-
 ## Additional Resources 📚
 
 - **License** 📄: For more information on how you can use this project, see the [LICENSE.md](./LICENSE.md) file.
@@ -92,4 +94,3 @@ By following these instructions and using the scripts provided, you'll be able t
 ## Acknowledgments 🙏
 
 This project utilizes various open-source libraries and frameworks. We extend our gratitude 🙌 to the contributors of these projects.
-
