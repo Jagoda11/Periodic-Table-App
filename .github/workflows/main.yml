@@ -42,7 +42,7 @@ jobs:
       - name: 🧹 Lint
         run: npm run lint
 
-       - name: 🧪 Run unit tests with coverage
+      - name: 🧪 Run unit tests with coverage
         run: npm run test:coverage
 
       - name: 🚀 Run end-to-end tests
