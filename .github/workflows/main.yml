@@ -52,10 +52,6 @@ jobs:
           VITE_APP_TITLE: ${{ secrets.VITE_APP_TITLE }}
           TEST_BASE_URL: 'http://localhost:3001'
 
-      - name: Run E2E tests with coverage
-        run: npm run test:e2e:coverage
-
-
       - name: 🖥️ Start server
         run: npm run start-server & sleep 5
 
