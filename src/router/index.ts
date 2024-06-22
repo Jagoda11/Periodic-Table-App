@@ -5,7 +5,7 @@ import PeriodicTable from '../../src/components/PeriodicTable.vue'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/periodic-table' // Redirect root path to /periodic-table
+    redirect: '/periodic-table'
   },
   {
     path: '/periodic-table',
@@ -21,7 +21,7 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/Periodic-Table-App/'),
   routes
 })
 

@@ -7,6 +7,7 @@ import { defineConfig } from 'vite'
 const port = parseInt(process.env.PORT || '3000') // Convert port value to number, fallback to default port 3000
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/Periodic-Table-App/',
   server: {
     port
   },
