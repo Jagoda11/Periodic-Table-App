@@ -42,7 +42,7 @@ This project is an interactive periodic table of elements, built using Vue 3 �
 
 We expect all contributors to adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) when participating in our project. Please review it before getting involved.
 
-# Getting Started with the Periodic Table App 🚀
+## Getting Started with the Periodic Table App 🚀
 
 Follow these steps to set up the project on your local machine and get started with development.
 
