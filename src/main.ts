@@ -31,7 +31,7 @@ const routes: RouteRecordRaw[] = [
 
 // Create the router instance
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/Periodic-Table-App/'),
   routes
 })
 
