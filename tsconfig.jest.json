@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.app.json",
-  "compilerOptions": {
-    "module": "CommonJS",
-    "esModuleInterop": true,
-    "allowJs": true
-  },
-  "include": ["**/*.spec.ts", "**/*.test.ts", "jest.setup.ts"]
-}
