@@ -29,9 +29,9 @@
     "type-check": "echo '🔍 Type-checking...' && vue-tsc --build --force",
     "lint": "echo '🔍 Linting files...' && eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix && echo '✅ Linting completed.'",
     "lint:fix": "echo '🛠️ Fixing lint issues...' && eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "echo '🎨 Formatting code...' && prettier --write src/",
-    "vite:start": "echo '🚀 Starting Vite server...' && vite",
-    "vite:build": "echo '🔨 Building with Vite...' && vite build"
+    "format": "echo '🎨 Formatting code...' && prettier --write src/ && echo '🎨 your code is beautifully formatted.🎨 '",
+    "vite:start": "echo '🚀 Starting Vite server...' && vite && echo '✅ Vite server started go to http://localhost:3001/Periodic-Table-App'",
+    "vite:build": "echo '🔨 Building with Vite...' && vite build && echo '⚙️ Build completed.🔧'"
   },
   "dependencies": {
     "@vue/runtime-dom": "^3.4.27",
