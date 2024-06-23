@@ -1,8 +1,7 @@
-//import { fileURLToPath, URL } from 'node:url'
-
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 const port = parseInt(process.env.PORT || '3000') // Convert port value to number, fallback to default port 3000
 // https://vitejs.dev/config/
@@ -14,14 +13,13 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
-      '@': 'src'
+      '@': resolve(__dirname, 'src')
     }
   },
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: 'src/main.ts'
-      // return this to /src/main.ts if stuff fail
+      input: resolve(__dirname, 'src/main.ts')
     }
   },
   optimizeDeps: {
