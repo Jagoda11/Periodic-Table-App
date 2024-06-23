@@ -10,8 +10,17 @@
 </head>
 
 <body>
-    <div id="app"></div>
-    <script type="module" src="/Periodic-Table-App/src/main.ts"></script>
+
+    <!-- <script type="module" src="/Periodic-Table-App/src/main.ts"></script> -->
+    <div id="app">Loading...</div>
+    <script type="module">
+        console.log('Base URL:', document.querySelector('base').getAttribute('href'));
+        import('/Periodic-Table-App/src/main.ts').then(module => {
+            console.log('Module loaded:', module);
+        }).catch(error => {
+            console.error('Error loading module:', error);
+        });
+    </script>
 </body>
 
 </html>
