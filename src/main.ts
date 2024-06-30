@@ -5,7 +5,7 @@ import './components/PeriodicTable.vue'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import type { RouteRecordRaw } from 'vue-router' // Import RouteRecordRaw as a type only
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import App from './App.vue'
 import PeriodicTable from './components/PeriodicTable.vue'
@@ -34,8 +34,14 @@ const routes: RouteRecordRaw[] = [
 ]
 
 // Create the router instance
-const router = createRouter({
+/* const router = createRouter({
   history: createWebHistory('/Periodic-Table-App/'),
+  routes
+}) */
+
+// Create the router instance with createWebHashHistory
+const router = createRouter({
+  history: createWebHashHistory(),
   routes
 })
 
