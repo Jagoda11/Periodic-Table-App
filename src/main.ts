@@ -25,6 +25,10 @@ const routes: RouteRecordRaw[] = [
     path: '/about',
     name: 'about',
     component: () => import('./views/AboutView.vue')
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/periodic-table'
   }
   // Add other routes as needed
 ]
