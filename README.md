@@ -38,6 +38,14 @@ This project is an interactive periodic table of elements, built using Vue 3 �
   - Husky 🐶 for pre-commit hooks.
   - Lint-Staged 🚩 for staged files linting.
 
+## Deployment 🚀
+
+The Periodic Table App is deployed and available live on GitHub Pages. You can interact with the live application by visiting the following URL:
+
+[Periodic Table App Live Demo](https://jagoda11.github.io/Periodic-Table-App/#/periodic-table)
+
+This deployment showcases the latest stable version of the app. Feel free to explore the interactive periodic table and discover more about the elements!
+
 ## Code of Conduct 📜
 
 We expect all contributors to adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) when participating in our project. Please review it before getting involved.
