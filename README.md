@@ -1,5 +1,10 @@
 # Periodic Table App 🧪
 
+![Build Status](https://github.com/Jagoda11/Periodic-Table-App/actions/workflows/main.yml/badge.svg)
+![GitHub Pages](https://img.shields.io/github/deployments/Jagoda11/Periodic-Table-App/github-pages)
+![License](https://img.shields.io/github/license/Jagoda11/Periodic-Table-App)
+![GitHub Issues](https://img.shields.io/github/issues/Jagoda11/Periodic-Table-App)
+
 This project is an interactive periodic table of elements, built using Vue 3 🛠️. It utilizes modern web technologies and tools to provide a rich user experience with reactive components and state management.
 
 <p align="center">
@@ -78,7 +83,7 @@ Follow these steps to set up the project on your local machine and get started w
 Here's a breakdown of the main npm scripts you'll use to develop, test, and audit the Periodic Table App:
 
 - **Local Development Server**:
-  - `npm run dev`: 🌐 Starts the Vite development server for local development at `http://localhost:3000`. Ideal for your day-to-day development activities.
+  - `npm run dev`: 🌐 Starts the Vite development server for local development at `http://localhost:3000/Periodic-Table-App/`. Ideal for your day-to-day development activities.
 
 - **Building for Production**:
   - `npm run build`: 🏗️ Compiles and minifies the application for production, ensuring optimal performance.
