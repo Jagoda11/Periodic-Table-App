@@ -28,7 +28,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/:catchAll(.*)',
-    redirect: '/periodic-table'
+    redirect: '/'
   }
   // Add other routes as needed
 ]
