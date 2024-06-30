@@ -11,6 +11,16 @@ This project is an interactive periodic table of elements, built using Vue 3 �
   <img src="./assets/periodic-table-vue.png" alt="Screenshot of the app" width="400"/>
 </p>
 
+## Deployment 🚀
+
+The Periodic Table App is deployed and available live on GitHub Pages. You can interact with the live application by visiting the following URL:
+
+[Periodic Table App Live Demo](https://jagoda11.github.io/Periodic-Table-App/#/periodic-table)
+
+This deployment showcases the latest stable version of the app. Feel free to explore the interactive periodic table and discover more about the elements!
+
+For details on how this app is deployed using TypeScript, GitHub Actions, and GitHub Pages, check out my Medium article: [Deploying a Vue 3 App with Vite, TypeScript, and GitHub Actions to GitHub Pages](https://medium.com/@jagoda11/deploying-a-vue-3-app-with-vite-typescript-and-github-actions-to-github-pages-ac240cdb473e)
+
 ## Technologies and Tools 🛠️
 
 - **Core**:
@@ -43,13 +53,6 @@ This project is an interactive periodic table of elements, built using Vue 3 �
   - Husky 🐶 for pre-commit hooks.
   - Lint-Staged 🚩 for staged files linting.
 
-## Deployment 🚀
-
-The Periodic Table App is deployed and available live on GitHub Pages. You can interact with the live application by visiting the following URL:
-
-[Periodic Table App Live Demo](https://jagoda11.github.io/Periodic-Table-App/#/periodic-table)
-
-This deployment showcases the latest stable version of the app. Feel free to explore the interactive periodic table and discover more about the elements!
 
 ## Code of Conduct 📜
 
