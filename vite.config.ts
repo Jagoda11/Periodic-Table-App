@@ -19,7 +19,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
-      input: resolve(__dirname, 'src/main.ts')
+      input: resolve(__dirname, 'index.html')
     }
   },
   optimizeDeps: {
