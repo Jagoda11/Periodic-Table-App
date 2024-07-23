@@ -63,6 +63,8 @@ playwright-report/
 jest-report/
 dist/
 
+.husky/
+
 # Dependency directories
 
 cypress-report/
