@@ -63,7 +63,7 @@ playwright-report/
 jest-report/
 dist/
 
-# .husky/
+.husky/
 
 # Dependency directories
 
