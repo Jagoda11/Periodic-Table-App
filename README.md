@@ -1,6 +1,6 @@
 # Periodic Table App 🧪
 
-![Build Status](https://github.com/Jagoda11/Periodic-Table-App/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/Jagoda11/Periodic-Table-App/actions/workflows/🚀main.yml/badge.svg)
 ![GitHub Pages](https://img.shields.io/github/deployments/Jagoda11/Periodic-Table-App/github-pages?style=flat-square&color=green)
 ![License](https://img.shields.io/github/license/Jagoda11/Periodic-Table-App?style=flat-square&color=orange)
 ![GitHub Issues](https://img.shields.io/github/issues/Jagoda11/Periodic-Table-App?style=flat-square&color=red)
@@ -53,7 +53,6 @@ For details on how this app is deployed using TypeScript, GitHub Actions, and Gi
 - **Utilities**:
   - Husky 🐶 for pre-commit hooks.
   - Lint-Staged 🚩 for staged files linting.
-
 
 ## Code of Conduct 📜
 
