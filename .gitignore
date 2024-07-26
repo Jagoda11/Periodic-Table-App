@@ -15,7 +15,7 @@ coverage
 *.local*
 *.localdev*
 *.local_dev*
-*.dev*
+# *.dev*
 *.development*
 
 *.test*
@@ -63,7 +63,7 @@ playwright-report/
 jest-report/
 dist/
 
-.husky/
+# .husky/
 
 # Dependency directories
 
