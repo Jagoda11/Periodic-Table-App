@@ -5,6 +5,8 @@
 ![License](https://img.shields.io/github/license/Jagoda11/Periodic-Table-App?style=flat-square&color=orange)
 ![GitHub Issues](https://img.shields.io/github/issues/Jagoda11/Periodic-Table-App?style=flat-square&color=red)
 ![Last Commit](https://img.shields.io/github/last-commit/Jagoda11/Periodic-Table-App?style=flat-square&color=yellow)
+![Vite](https://img.shields.io/github/package-json/dependency-version/Jagoda11/Periodic-Table-App/dev/vite?logo=vite&style=flat-square)
+![Vue](https://img.shields.io/npm/v/vue.svg?label=vue&color=brightgreen)
 
 This project is an interactive periodic table of elements, built using Vue 3 🛠️. It utilizes modern web technologies and tools to provide a rich user experience with reactive components and state management.
 
