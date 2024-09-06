@@ -50,6 +50,9 @@ jobs:
         
       - name: 🧪 Run tests
         run: npm test
+        
+      - name: 🐶 Install Husky
+        run: npx husky install
 
       - name: Check Test Results
         id: check_tests
