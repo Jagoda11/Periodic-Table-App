@@ -68,9 +68,9 @@ jobs:
         id: check_scan
         run: |
           if [ $? -eq 0 ]; then
-            echo "::set-output name=scan_passed::true"
+            echo "scan_passed=true" >> $GITHUB_ENV
           else
-            echo "::set-output name=scan_passed::false"
+            echo "scan_passed=false" >> $GITHUB_ENV
           fi
 
       - name: 📝 Commit changes
