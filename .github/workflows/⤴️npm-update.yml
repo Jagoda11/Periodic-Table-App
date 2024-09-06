@@ -1,0 +1,86 @@
+name: 🚀 Dependency Update and Vulnerability Scan
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 2 * * 5'
+  workflow_dispatch:
+
+jobs:
+  update-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛠️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🗑️ Remove package-lock.json
+        run: rm -f package-lock.json
+
+      - name: 📦 Install npm-check-updates
+        run: npm install -g npm-check-updates
+
+      - name: ⬆️ Update all packages except ESLint
+        run: |
+          ncu -x eslint -u
+          npm install
+          npm install eslint@8.56.0 --save-dev
+
+      - name: 📦 Update dependencies with legacy peer deps
+        run: npm update --legacy-peer-deps
+
+      - name: 📋 List installed dependencies
+        run: npm ls
+
+      - name: 🧪 Run tests
+        run: npm test
+
+      - name: Check Test Results
+        id: check_tests
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "tests_passed=true" >> $GITHUB_ENV
+          else
+            echo "tests_passed=false" >> $GITHUB_ENV
+          fi
+
+      - name: 🎭 Mask Debricked credentials
+        run: |
+          echo "::add-mask::${{ secrets.DEBRICKED_TOKEN }}"
+
+      - name: Install Debricked CLI
+        run: |
+          curl -L https://github.com/debricked/cli/releases/latest/download/cli_linux_x86_64.tar.gz | tar -xz debricked
+          sudo mv debricked /usr/local/bin/debricked
+
+      - name: 🛡️ Debricked Vulnerability Scan
+        run: |
+          debricked scan -t ${{ secrets.DEBRICKED_TOKEN }} -r ${{ github.repository }} -c ${{ github.sha }}
+
+      - name: Check Scan Results
+        id: check_scan
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "::set-output name=scan_passed::true"
+          else
+            echo "::set-output name=scan_passed::false"
+          fi
+
+      - name: 📝 Commit changes
+        if: steps.check_tests.outputs.tests_passed == 'true' && steps.check_scan.outputs.scan_passed == 'true'
+        run: |
+          git config --local user.name "Debugging Duck 🦆"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies except ESLint ⬆️"
+
+      - name: 🚀 Push changes
+        if: steps.check_tests.outputs.tests_passed == 'true' && steps.check_scan.outputs.scan_passed == 'true'
+        run: git push
