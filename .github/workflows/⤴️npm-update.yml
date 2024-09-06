@@ -1,5 +1,8 @@
 name: 🚀 Dependency Update and Vulnerability Scan
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
