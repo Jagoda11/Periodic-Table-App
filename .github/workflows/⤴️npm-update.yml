@@ -58,9 +58,9 @@ jobs:
         id: check_tests
         run: |
           if [ $? -eq 0 ]; then
-            echo "tests_passed=true" >> $GITHUB_ENV
+            echo "::set-output name=tests_passed::true"
           else
-            echo "tests_passed=false" >> $GITHUB_ENV
+            echo "::set-output name=tests_passed::false"
           fi
 
       - name: 🎭 Mask Debricked credentials
@@ -79,17 +79,17 @@ jobs:
       - name: Check Scan Results
         id: check_scan
         run: |
-          if [ $? -eq 0 ]; then
-            echo "scan_passed=true" >> $GITHUB_ENV
-          else
-            echo "scan_passed=false" >> $GITHUB_ENV
-          fi
+            if [ $? -eq 0 ]; then
+              echo "::set-output name=scan_passed::true"
+            else
+              echo "::set-output name=scan_passed::false"
+            fi
 
       - name: Debug Test Results
-        run: echo "tests_passed=$tests_passed"
-
+        run: echo "tests_passed=${{ steps.check_tests.outputs.tests_passed }}"
+    
       - name: Debug Scan Results
-        run: echo "scan_passed=$scan_passed"
+        run: echo "scan_passed=${{ steps.check_scan.outputs.scan_passed }}"
 
       - name: 📝 Commit changes
         if: steps.check_tests.outputs.tests_passed == 'true' && steps.check_scan.outputs.scan_passed == 'true'
