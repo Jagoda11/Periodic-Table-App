@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { createApp } from 'vue'
-import { config } from '@vue/test-utils'
-import { createPinia } from 'pinia'
+import { createApp } from 'vue';
+import { config } from '@vue/test-utils';
+import { createPinia } from 'pinia';
 
 // Setup Pinia
-config.global.plugins.push(createPinia())
+config.global.plugins.push(createPinia());
 
 // Mocking Vue Router to avoid test errors
 jest.mock('vue-router', () => ({
@@ -24,4 +24,4 @@ jest.mock('vue-router', () => ({
     query: {}
     // add other route properties as necessary
   })
-}))
+}));

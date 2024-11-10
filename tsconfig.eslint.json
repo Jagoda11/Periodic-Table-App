@@ -4,7 +4,7 @@
     "src/**/*",
     "src/**/*.vue",
     "src/**/*.ts",
-    ".eslintrc.cjs",
+    "eslint.config.js",
     "jest.config.ts",
     "jest.setup.ts",
     "playwright-tests/**/*.ts",
