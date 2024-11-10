@@ -30,11 +30,9 @@ jobs:
       - name: 📦 Install npm-check-updates
         run: npm install -g npm-check-updates
 
-      - name: ⬆️ Update all packages except ESLint
+      - name: ⬆️ Update all packages
         run: |
-          ncu -x eslint -u
           npm install
-          npm install eslint@8.56.0 --save-dev
 
       - name: 📦 Update dependencies with legacy peer deps
         run: npm update --legacy-peer-deps
@@ -47,10 +45,10 @@ jobs:
 
       - name: 🧹 Lint
         run: npm run lint
-        
+
       - name: 🧪 Run tests
         run: npm test
-        
+
       - name: 🐶 Install Husky
         run: npx husky install
 
@@ -79,15 +77,15 @@ jobs:
       - name: Check Scan Results
         id: check_scan
         run: |
-            if [ $? -eq 0 ]; then
-              echo "::set-output name=scan_passed::true"
-            else
-              echo "::set-output name=scan_passed::false"
-            fi
+          if [ $? -eq 0 ]; then
+            echo "::set-output name=scan_passed::true"
+          else
+            echo "::set-output name=scan_passed::false"
+          fi
 
       - name: Debug Test Results
         run: echo "tests_passed=${{ steps.check_tests.outputs.tests_passed }}"
-    
+
       - name: Debug Scan Results
         run: echo "scan_passed=${{ steps.check_scan.outputs.scan_passed }}"
 
