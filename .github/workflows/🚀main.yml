@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: 🛎️ Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 📦 Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '21'
 
@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get install -y xvfb
 
       - name: 🎭 Setup Playwright
-        uses: microsoft/playwright-github-action@v1
+        uses: microsoft/playwright-github-action@v4
 
       - name: 📥 Install dependencies
         run: npm install
