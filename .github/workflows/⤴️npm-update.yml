@@ -95,7 +95,7 @@ jobs:
           git config --local user.name "Debugging Duck 🦆"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies except ESLint ⬆️"
+          git diff-index --quiet HEAD || git commit -m "⬆️ update all npm dependencies ⬆️"
 
       - name: 🚀 Push changes
         if: steps.check_tests.outputs.tests_passed == 'true' && steps.check_scan.outputs.scan_passed == 'true'
