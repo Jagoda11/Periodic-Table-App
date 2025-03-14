@@ -19,7 +19,7 @@ jobs:
         run: sudo apt-get install -y xvfb
 
       - name: 🎭 Setup Playwright
-        uses: microsoft/playwright-github-action@v1.5.2
+        run: npx playwright install --with-deps
 
       - name: 📥 Install dependencies
         run: npm install
@@ -29,9 +29,6 @@ jobs:
 
       - name: 📂 List build output
         run: ls -l dist
-
-      - name: 🌐 Install Playwright browsers
-        run: npx playwright install --with-deps
 
       - name: 📦 Install pnpm
         run: npm install -g pnpm
