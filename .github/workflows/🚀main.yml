@@ -57,6 +57,7 @@ jobs:
         with:
           urls: 'http://localhost:3001'
           uploadArtifacts: true
+          artifactName: 'LHResults'
 
       - name: 🚀 Deploy to GitHub Pages 🚀
         if: github.ref == 'refs/heads/main'
