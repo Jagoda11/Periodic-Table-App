@@ -56,8 +56,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v7
         with:
           urls: 'http://localhost:3001'
-          uploadArtifacts: true
-          artifactName: 'LHResults'
+          uploadArtifacts: false
 
       - name: 🚀 Deploy to GitHub Pages 🚀
         if: github.ref == 'refs/heads/main'
