@@ -1,4 +1,4 @@
-import type { CounterStore } from '@/types/counter'
+import type { CounterStore } from '../types/counter.ts'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
