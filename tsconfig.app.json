@@ -62,7 +62,7 @@
   "exclude": ["node_modules", "dist", "public", "src/**/*.spec.ts"],
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "Node16",
     "allowJs": true,
     "strict": true,
     "incremental": true,
@@ -71,7 +71,7 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "isolatedModules": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "jsx": "preserve",
     "sourceMap": true,
     "composite": true,
