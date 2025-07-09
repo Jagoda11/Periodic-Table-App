@@ -21,7 +21,9 @@ export default [
       '@typescript-eslint': typescriptEslintPlugin
     },
     rules: {
-      ...eslintPluginVue.configs['vue3-recommended'].rules,
+      ...(eslintPluginVue.configs && eslintPluginVue.configs['vue3-recommended']
+        ? eslintPluginVue.configs['vue3-recommended'].rules
+        : {}),
       'no-unused-vars': 'warn',
       'no-console': 'warn',
       eqeqeq: 'error',
